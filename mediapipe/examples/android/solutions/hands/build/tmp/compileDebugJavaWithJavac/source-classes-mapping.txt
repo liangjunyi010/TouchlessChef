@@ -1,9 +1,0 @@
-com/google/mediapipe/examples/hands/MainActivity.java
- com.google.mediapipe.examples.hands.MainActivity
- com.google.mediapipe.examples.hands.MainActivity$InputSource
-com/google/mediapipe/examples/hands/HandsResultGlRenderer.java
- com.google.mediapipe.examples.hands.HandsResultGlRenderer
-com/google/mediapipe/examples/hands/HandsResultImageView.java
- com.google.mediapipe.examples.hands.HandsResultImageView
-com/google/mediapipe/examples/hands/BuildConfig.java
- com.google.mediapipe.examples.hands.BuildConfig
