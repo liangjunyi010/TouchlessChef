@@ -1,0 +1,101 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.google.mediapipe.apps.hands"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:5:3-7:39
+8        android:minSdkVersion="21"
+8-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:6:7-33
+9        android:targetSdkVersion="30" />
+9-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:7:7-36
+10
+11    <!-- For loading images from gallery -->
+12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+12-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:10:3-78
+12-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:10:20-75
+13    <!-- For using the camera -->
+14    <uses-permission android:name="android.permission.CAMERA" />
+14-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:12:3-63
+14-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:12:20-60
+15
+16    <uses-feature android:name="android.hardware.camera" />
+16-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:13:3-58
+16-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:13:17-55
+17    <!-- For logging solution events -->
+18    <uses-permission android:name="android.permission.INTERNET" />
+18-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:15:3-65
+18-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:15:20-62
+19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+19-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:16:3-77
+19-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:16:20-74
+20
+21    <application
+21-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:18:3-33:17
+22        android:allowBackup="true"
+22-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:19:7-33
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.5.0] /Users/blongtran/.gradle/caches/transforms-3/8091e88265a2bdec2561f7dc53bbc273/transformed/core-1.5.0/AndroidManifest.xml:24:18-86
+24        android:debuggable="true"
+25        android:icon="@mipmap/ic_launcher"
+25-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:20:7-41
+26        android:label="MediaPipe Hands"
+26-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:21:7-38
+27        android:roundIcon="@mipmap/ic_launcher_round"
+27-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:22:7-52
+28        android:supportsRtl="true"
+28-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:23:7-33
+29        android:testOnly="true"
+30        android:theme="@style/AppTheme" >
+30-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:24:7-38
+31        <activity
+31-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:25:5-32:16
+32            android:name="com.google.mediapipe.examples.hands.MainActivity"
+32-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:25:15-43
+33            android:screenOrientation="portrait" >
+33-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:26:15-51
+34            <intent-filter>
+34-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:27:7-31:23
+35                <action android:name="android.intent.action.MAIN" />
+35-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:28:9-61
+35-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:28:17-58
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:30:9-69
+37-->/Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:30:19-66
+38            </intent-filter>
+39        </activity>
+40
+41        <service
+41-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:29:9-35:19
+42            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+42-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:30:13-103
+43            android:exported="false" >
+43-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:31:13-37
+44            <meta-data
+44-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:32:13-34:39
+45                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+45-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:33:17-94
+46                android:value="cct" />
+46-->[com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:34:17-36
+47        </service>
+48        <service
+48-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:26:9-30:19
+49            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+49-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:27:13-117
+50            android:exported="false"
+50-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:28:13-37
+51            android:permission="android.permission.BIND_JOB_SERVICE" >
+51-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:29:13-69
+52        </service>
+53
+54        <receiver
+54-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:32:9-34:40
+55            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+55-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:33:13-132
+56            android:exported="false" />
+56-->[com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:34:13-37
+57    </application>
+58
+59</manifest>

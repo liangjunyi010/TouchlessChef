@@ -1,0 +1,270 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:2:1-35:12
+MERGED from [com.google.android.material:material:1.3.0] /Users/blongtran/.gradle/caches/transforms-3/b98e6b9fdda11fe260c03c8fafde63ff/transformed/material-1.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/blongtran/.gradle/caches/transforms-3/6c9c97615cfc1e30abc2ed961985f2e8/transformed/constraintlayout-2.0.4/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.3.0] /Users/blongtran/.gradle/caches/transforms-3/343ad6cc2b3ed66b253e05c22b267c81/transformed/appcompat-1.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.mediapipe:hands:0.8.9-alpha-5] /Users/blongtran/.gradle/caches/transforms-3/658eed8c0ee045fc5ba64e14c4dae3a9/transformed/hands-0.8.9-alpha-5/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.mediapipe:solution-core:0.8.9-alpha-5] /Users/blongtran/.gradle/caches/transforms-3/bc4b3d6dac6ebad04d88c7f916f1769f/transformed/solution-core-0.8.9-alpha-5/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.camera:camera-camera2:1.0.0-beta10] /Users/blongtran/.gradle/caches/transforms-3/8405f8908e55fae58170bed333c849ba/transformed/jetified-camera-camera2-1.0.0-beta10/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.camera:camera-lifecycle:1.0.0-beta10] /Users/blongtran/.gradle/caches/transforms-3/09c12ca7daad5d7be86f5f4d6786e78a/transformed/jetified-camera-lifecycle-1.0.0-beta10/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.camera:camera-core:1.0.0-beta10] /Users/blongtran/.gradle/caches/transforms-3/8f9ebfe8dcdcf2efe3bb9efccd11c842/transformed/jetified-camera-core-1.0.0-beta10/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] /Users/blongtran/.gradle/caches/transforms-3/8584926e33438beb278bf51d772e28e3/transformed/exifinterface-1.3.3/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/3504aa656f9d00f9e2cadffb281d01d0/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.3.4] /Users/blongtran/.gradle/caches/transforms-3/c80f748c12cd6a3c65f11ec019acbe76/transformed/fragment-1.3.4/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.2.3] /Users/blongtran/.gradle/caches/transforms-3/e28acb3c17f67da8dfde12975612c5c8/transformed/activity-1.2.3/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] /Users/blongtran/.gradle/caches/transforms-3/6c4d728635ece64618e735dfe647917d/transformed/appcompat-resources-1.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/3f7821781e94f81fee824a3c8b7db309/transformed/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/7504ccfe757c3b8251dde7494000f3ff/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/fbc7e087a85ee6ec45b41cbf6736a7e8/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] /Users/blongtran/.gradle/caches/transforms-3/82e137d0499d09a449d2463aa5974f15/transformed/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/bad80395f89f9c8d7e39c1b2b41b5525/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/ec79f9c58b64c498772908f9ba77a8d1/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/70815d79092ecd9fc6461dffc8a2c5cb/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/653456c4a641da75de4b4a9638a8683c/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/26a7debbd02593a460c2da8b73b1a684/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/07202513350ea83f4d6257994e0c248b/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/b2ba3d5ed78786779fe2371dcc849edb/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.5.0] /Users/blongtran/.gradle/caches/transforms-3/8091e88265a2bdec2561f7dc53bbc273/transformed/core-1.5.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/fdf82ea01639be3b378e3d8ae26d9fb7/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/481e173be89c72b2339cfb90a0d0dfe3/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/2a57aba640d6987b70d76bbd37348ac4/transformed/jetified-savedstate-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/92651462d6f41bde4411efc5c61a0aad/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/dabda3dcb43df8ec4c551ac08ba381df/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/a2242387247aa8432093d2a01af71dba/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/blongtran/.gradle/caches/transforms-3/b71384a0697fe2ec549e0a6d174317c2/transformed/transport-api-3.0.0/AndroidManifest.xml:15:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/blongtran/.gradle/caches/transforms-3/8a9cae927f9316cf7d269ce5dd3eaa14/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/faf84e9f04a9c3b437080e86a107d0b9/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.1.0] /Users/blongtran/.gradle/caches/transforms-3/c2ae6bf272bd10df8bdb2c57a7c9bdb9/transformed/lifecycle-livedata-2.1.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/ebd7630bfb4c047fea30074c62d6420c/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/blongtran/.gradle/caches/transforms-3/3e108d352bff2b84e595703a9f580dc7/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/blongtran/.gradle/caches/transforms-3/2dcdf8bef7f7788da3567e4fb946757e/transformed/firebase-encoders-json-18.0.0/AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/70be178243629fefb8ce9adf6a292e12/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/c37e8f3de07728d5aa1483e75a377c93/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/30559646bdc9f3290097ba378eb99203/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/b618f929228947d1fd03b4a852d85b00/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/78759bb9014001eef7850905c2fbbc44/transformed/annotation-experimental-1.0.0/AndroidManifest.xml:17:1-24:12
+INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:2:1-35:12
+	package
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:3:5-50
+		INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml
+		INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:2:1-35:12
+		INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:2:1-35:12
+		INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:2:11-69
+uses-sdk
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:5:3-7:39
+INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:5:3-7:39
+INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:5:3-7:39
+MERGED from [com.google.android.material:material:1.3.0] /Users/blongtran/.gradle/caches/transforms-3/b98e6b9fdda11fe260c03c8fafde63ff/transformed/material-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.3.0] /Users/blongtran/.gradle/caches/transforms-3/b98e6b9fdda11fe260c03c8fafde63ff/transformed/material-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/blongtran/.gradle/caches/transforms-3/6c9c97615cfc1e30abc2ed961985f2e8/transformed/constraintlayout-2.0.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/blongtran/.gradle/caches/transforms-3/6c9c97615cfc1e30abc2ed961985f2e8/transformed/constraintlayout-2.0.4/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.3.0] /Users/blongtran/.gradle/caches/transforms-3/343ad6cc2b3ed66b253e05c22b267c81/transformed/appcompat-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.3.0] /Users/blongtran/.gradle/caches/transforms-3/343ad6cc2b3ed66b253e05c22b267c81/transformed/appcompat-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.mediapipe:hands:0.8.9-alpha-5] /Users/blongtran/.gradle/caches/transforms-3/658eed8c0ee045fc5ba64e14c4dae3a9/transformed/hands-0.8.9-alpha-5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.mediapipe:hands:0.8.9-alpha-5] /Users/blongtran/.gradle/caches/transforms-3/658eed8c0ee045fc5ba64e14c4dae3a9/transformed/hands-0.8.9-alpha-5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.mediapipe:solution-core:0.8.9-alpha-5] /Users/blongtran/.gradle/caches/transforms-3/bc4b3d6dac6ebad04d88c7f916f1769f/transformed/solution-core-0.8.9-alpha-5/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.mediapipe:solution-core:0.8.9-alpha-5] /Users/blongtran/.gradle/caches/transforms-3/bc4b3d6dac6ebad04d88c7f916f1769f/transformed/solution-core-0.8.9-alpha-5/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.camera:camera-camera2:1.0.0-beta10] /Users/blongtran/.gradle/caches/transforms-3/8405f8908e55fae58170bed333c849ba/transformed/jetified-camera-camera2-1.0.0-beta10/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.camera:camera-camera2:1.0.0-beta10] /Users/blongtran/.gradle/caches/transforms-3/8405f8908e55fae58170bed333c849ba/transformed/jetified-camera-camera2-1.0.0-beta10/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.camera:camera-lifecycle:1.0.0-beta10] /Users/blongtran/.gradle/caches/transforms-3/09c12ca7daad5d7be86f5f4d6786e78a/transformed/jetified-camera-lifecycle-1.0.0-beta10/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.camera:camera-lifecycle:1.0.0-beta10] /Users/blongtran/.gradle/caches/transforms-3/09c12ca7daad5d7be86f5f4d6786e78a/transformed/jetified-camera-lifecycle-1.0.0-beta10/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.camera:camera-core:1.0.0-beta10] /Users/blongtran/.gradle/caches/transforms-3/8f9ebfe8dcdcf2efe3bb9efccd11c842/transformed/jetified-camera-core-1.0.0-beta10/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.camera:camera-core:1.0.0-beta10] /Users/blongtran/.gradle/caches/transforms-3/8f9ebfe8dcdcf2efe3bb9efccd11c842/transformed/jetified-camera-core-1.0.0-beta10/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] /Users/blongtran/.gradle/caches/transforms-3/8584926e33438beb278bf51d772e28e3/transformed/exifinterface-1.3.3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] /Users/blongtran/.gradle/caches/transforms-3/8584926e33438beb278bf51d772e28e3/transformed/exifinterface-1.3.3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/3504aa656f9d00f9e2cadffb281d01d0/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/3504aa656f9d00f9e2cadffb281d01d0/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.4] /Users/blongtran/.gradle/caches/transforms-3/c80f748c12cd6a3c65f11ec019acbe76/transformed/fragment-1.3.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.4] /Users/blongtran/.gradle/caches/transforms-3/c80f748c12cd6a3c65f11ec019acbe76/transformed/fragment-1.3.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.3] /Users/blongtran/.gradle/caches/transforms-3/e28acb3c17f67da8dfde12975612c5c8/transformed/activity-1.2.3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.3] /Users/blongtran/.gradle/caches/transforms-3/e28acb3c17f67da8dfde12975612c5c8/transformed/activity-1.2.3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] /Users/blongtran/.gradle/caches/transforms-3/6c4d728635ece64618e735dfe647917d/transformed/appcompat-resources-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.3.0] /Users/blongtran/.gradle/caches/transforms-3/6c4d728635ece64618e735dfe647917d/transformed/appcompat-resources-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/3f7821781e94f81fee824a3c8b7db309/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/3f7821781e94f81fee824a3c8b7db309/transformed/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/7504ccfe757c3b8251dde7494000f3ff/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/7504ccfe757c3b8251dde7494000f3ff/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/fbc7e087a85ee6ec45b41cbf6736a7e8/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/fbc7e087a85ee6ec45b41cbf6736a7e8/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] /Users/blongtran/.gradle/caches/transforms-3/82e137d0499d09a449d2463aa5974f15/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/blongtran/.gradle/caches/transforms-3/82e137d0499d09a449d2463aa5974f15/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/bad80395f89f9c8d7e39c1b2b41b5525/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/bad80395f89f9c8d7e39c1b2b41b5525/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/ec79f9c58b64c498772908f9ba77a8d1/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/ec79f9c58b64c498772908f9ba77a8d1/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/70815d79092ecd9fc6461dffc8a2c5cb/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/70815d79092ecd9fc6461dffc8a2c5cb/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/653456c4a641da75de4b4a9638a8683c/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/653456c4a641da75de4b4a9638a8683c/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/26a7debbd02593a460c2da8b73b1a684/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/26a7debbd02593a460c2da8b73b1a684/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/07202513350ea83f4d6257994e0c248b/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/07202513350ea83f4d6257994e0c248b/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/b2ba3d5ed78786779fe2371dcc849edb/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/b2ba3d5ed78786779fe2371dcc849edb/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.5.0] /Users/blongtran/.gradle/caches/transforms-3/8091e88265a2bdec2561f7dc53bbc273/transformed/core-1.5.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.5.0] /Users/blongtran/.gradle/caches/transforms-3/8091e88265a2bdec2561f7dc53bbc273/transformed/core-1.5.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/fdf82ea01639be3b378e3d8ae26d9fb7/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/fdf82ea01639be3b378e3d8ae26d9fb7/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/481e173be89c72b2339cfb90a0d0dfe3/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/481e173be89c72b2339cfb90a0d0dfe3/transformed/jetified-lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/2a57aba640d6987b70d76bbd37348ac4/transformed/jetified-savedstate-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] /Users/blongtran/.gradle/caches/transforms-3/2a57aba640d6987b70d76bbd37348ac4/transformed/jetified-savedstate-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/92651462d6f41bde4411efc5c61a0aad/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/92651462d6f41bde4411efc5c61a0aad/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/dabda3dcb43df8ec4c551ac08ba381df/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/dabda3dcb43df8ec4c551ac08ba381df/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/a2242387247aa8432093d2a01af71dba/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/a2242387247aa8432093d2a01af71dba/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/blongtran/.gradle/caches/transforms-3/b71384a0697fe2ec549e0a6d174317c2/transformed/transport-api-3.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/blongtran/.gradle/caches/transforms-3/b71384a0697fe2ec549e0a6d174317c2/transformed/transport-api-3.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/blongtran/.gradle/caches/transforms-3/8a9cae927f9316cf7d269ce5dd3eaa14/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/blongtran/.gradle/caches/transforms-3/8a9cae927f9316cf7d269ce5dd3eaa14/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/faf84e9f04a9c3b437080e86a107d0b9/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/faf84e9f04a9c3b437080e86a107d0b9/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.1.0] /Users/blongtran/.gradle/caches/transforms-3/c2ae6bf272bd10df8bdb2c57a7c9bdb9/transformed/lifecycle-livedata-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.1.0] /Users/blongtran/.gradle/caches/transforms-3/c2ae6bf272bd10df8bdb2c57a7c9bdb9/transformed/lifecycle-livedata-2.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/ebd7630bfb4c047fea30074c62d6420c/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /Users/blongtran/.gradle/caches/transforms-3/ebd7630bfb4c047fea30074c62d6420c/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/blongtran/.gradle/caches/transforms-3/3e108d352bff2b84e595703a9f580dc7/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/blongtran/.gradle/caches/transforms-3/3e108d352bff2b84e595703a9f580dc7/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/blongtran/.gradle/caches/transforms-3/2dcdf8bef7f7788da3567e4fb946757e/transformed/firebase-encoders-json-18.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/blongtran/.gradle/caches/transforms-3/2dcdf8bef7f7788da3567e4fb946757e/transformed/firebase-encoders-json-18.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/70be178243629fefb8ce9adf6a292e12/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/70be178243629fefb8ce9adf6a292e12/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/c37e8f3de07728d5aa1483e75a377c93/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/c37e8f3de07728d5aa1483e75a377c93/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/30559646bdc9f3290097ba378eb99203/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/30559646bdc9f3290097ba378eb99203/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/b618f929228947d1fd03b4a852d85b00/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/b618f929228947d1fd03b4a852d85b00/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/78759bb9014001eef7850905c2fbbc44/transformed/annotation-experimental-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] /Users/blongtran/.gradle/caches/transforms-3/78759bb9014001eef7850905c2fbbc44/transformed/annotation-experimental-1.0.0/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:5:3-7:39
+INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:5:3-7:39
+	android:targetSdkVersion
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:7:7-36
+		INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml
+		INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:6:7-33
+		INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml
+		INJECTED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:10:3-78
+	android:name
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:10:20-75
+uses-permission#android.permission.CAMERA
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:12:3-63
+	android:name
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:12:20-60
+uses-feature#android.hardware.camera
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:13:3-58
+	android:name
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:13:17-55
+uses-permission#android.permission.INTERNET
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:15:3-65
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:26:5-67
+	android:name
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:15:20-62
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:16:3-77
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:16:20-74
+application
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:18:3-33:17
+MERGED from [com.google.android.material:material:1.3.0] /Users/blongtran/.gradle/caches/transforms-3/b98e6b9fdda11fe260c03c8fafde63ff/transformed/material-1.3.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.3.0] /Users/blongtran/.gradle/caches/transforms-3/b98e6b9fdda11fe260c03c8fafde63ff/transformed/material-1.3.0/AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/blongtran/.gradle/caches/transforms-3/6c9c97615cfc1e30abc2ed961985f2e8/transformed/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/blongtran/.gradle/caches/transforms-3/6c9c97615cfc1e30abc2ed961985f2e8/transformed/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.5.0] /Users/blongtran/.gradle/caches/transforms-3/8091e88265a2bdec2561f7dc53bbc273/transformed/core-1.5.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.5.0] /Users/blongtran/.gradle/caches/transforms-3/8091e88265a2bdec2561f7dc53bbc273/transformed/core-1.5.0/AndroidManifest.xml:24:5-89
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:25:5-39:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/blongtran/.gradle/caches/transforms-3/8a9cae927f9316cf7d269ce5dd3eaa14/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/blongtran/.gradle/caches/transforms-3/8a9cae927f9316cf7d269ce5dd3eaa14/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.5.0] /Users/blongtran/.gradle/caches/transforms-3/8091e88265a2bdec2561f7dc53bbc273/transformed/core-1.5.0/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:23:7-33
+	android:label
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:21:7-38
+	android:roundIcon
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:22:7-52
+	android:icon
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:20:7-41
+	android:allowBackup
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:19:7-33
+	android:theme
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:24:7-38
+activity#com.google.mediapipe.examples.hands.MainActivity
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:25:5-32:16
+	android:screenOrientation
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:26:15-51
+	android:name
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:25:15-43
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:27:7-31:23
+action#android.intent.action.MAIN
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:28:9-61
+	android:name
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:28:17-58
+category#android.intent.category.LAUNCHER
+ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:30:9-69
+	android:name
+		ADDED from /Users/blongtran/Documents/GitHub/mediapipe/mediapipe/examples/android/solutions/hands/src/main/AndroidManifest.xml:30:19-66
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:30:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:32:13-34:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:34:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/61ab6e6e360dac0556c6fc0bd60ee2fa/transformed/transport-backend-cct-3.1.0/AndroidManifest.xml:33:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/blongtran/.gradle/caches/transforms-3/8ccab33f54faffa53719142223b92aeb/transformed/transport-runtime-3.1.0/AndroidManifest.xml:33:13-132

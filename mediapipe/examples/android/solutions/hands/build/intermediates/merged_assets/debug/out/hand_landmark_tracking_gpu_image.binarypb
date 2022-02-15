@@ -1,0 +1,7 @@
+
+hFlowLimiterCalculatorimageFINISHED:multi_hand_landmarks"throttled_image:
+Â‡¢ß	j
+FINISHED
+bFromImageCalculatorIMAGE:throttled_image"IMAGE_GPU:raw_gpu_buffer"SOURCE_ON_GPU:is_gpu_image
+mImageTransformationCalculatorIMAGE_GPU:raw_gpu_bufferFLIP_VERTICALLY:is_gpu_image"IMAGE_GPU:gpu_buffer
+ùHandLandmarkTrackingGpuIMAGE:gpu_buffer"LANDMARKS:multi_hand_landmarks"*WORLD_LANDMARKS:multi_hand_world_landmarks"HANDEDNESS:multi_handedness"PALM_DETECTIONS:palm_detections"#HAND_ROIS_FROM_LANDMARKS:hand_rects">HAND_ROIS_FROM_PALM_DETECTIONS:hand_rects_from_palm_detections*NUM_HANDS:num_hands*!MODEL_COMPLEXITY:model_complexity*%USE_PREV_LANDMARKS:use_prev_landmarksRIMAGE:imagezLANDMARKS:multi_hand_landmarksz*WORLD_LANDMARKS:multi_hand_world_landmarkszHANDEDNESS:multi_handednesszIMAGE:throttled_imagezPALM_DETECTIONS:palm_detectionsz#HAND_ROIS_FROM_LANDMARKS:hand_rectsz>HAND_ROIS_FROM_PALM_DETECTIONS:hand_rects_from_palm_detections‚NUM_HANDS:num_hands‚!MODEL_COMPLEXITY:model_complexity‚%USE_PREV_LANDMARKS:use_prev_landmarks¢HandLandmarkTrackingGpuImage
