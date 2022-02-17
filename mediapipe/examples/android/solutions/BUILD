@@ -16,6 +16,6 @@ licenses(["notice"])
 
 filegroup(
     name = "resource_files",
-    srcs = glob(["res/**"]),
+    srcs = glob(["hands.src.main.res/**"]),
     visibility = ["//mediapipe/examples/android/solutions:__subpackages__"],
 )

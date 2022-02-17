@@ -19,7 +19,7 @@ android_library(
     name = "basic_lib",
     srcs = glob(["*.java"]),
     manifest = "AndroidManifest.xml",
-    resource_files = glob(["res/**"]),
+    resource_files = glob(["hands.src.main.res/**"]),
     visibility = ["//visibility:public"],
     deps = [
         "//mediapipe/java/com/google/mediapipe/components:android_camerax_helper",
