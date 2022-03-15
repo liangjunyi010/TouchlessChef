@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 // ContentResolver dependency
 import com.google.mediapipe.formats.proto.LandmarkProto.Landmark;
 import com.google.mediapipe.formats.proto.LandmarkProto.NormalizedLandmark;
@@ -30,22 +31,22 @@ import com.google.mediapipe.solutions.hands.Hands;
 import com.google.mediapipe.solutions.hands.HandsOptions;
 import com.google.mediapipe.solutions.hands.HandsResult;
 
-
 /** Main activity of MediaPipe Hands app. */
 public class MainActivity extends AppCompatActivity {
   private static final String TAG = "MainActivity";
   private Hands hands;
   // Run the pipeline and the model inference on GPU or CPU.
   private static final boolean RUN_ON_GPU = true;
-
   private enum InputSource {
     UNKNOWN,
     CAMERA,
   }
   private InputSource inputSource = InputSource.UNKNOWN;
-
+  // Live camera demo UI and camera components.
   private CameraInput cameraInput;
   private SolutionGlSurfaceView<HandsResult> glSurfaceView;
+
+  private static boolean stopTracking = false;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +60,19 @@ public class MainActivity extends AppCompatActivity {
     Button startCameraButton = findViewById(R.id.button_start_camera);
     startCameraButton.setOnClickListener(
         v -> {
-          if (inputSource == InputSource.CAMERA) {
-            return;
-          }
-          stopCurrentPipeline();
+          if (inputSource == InputSource.CAMERA) return;
+          if (!stopTracking) stopCurrentPipeline();
           setupStreamingModePipeline(InputSource.CAMERA);
         });
+
+    Button stopCameraButton = findViewById(R.id.button_stop_camera);
+    stopCameraButton.setOnClickListener(
+            v -> {
+              if (inputSource == InputSource.UNKNOWN) return;
+              inputSource = InputSource.UNKNOWN;
+              stopCurrentPipeline();
+              stopTracking = true;
+            });
   }
 
   /** Sets up core workflow for streaming mode. */
@@ -99,16 +107,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
     // The runnable to start camera after the gl surface view is attached.
+    // For video input source, videoInput.start() will be called when the video uri is available.
     if (inputSource == InputSource.CAMERA) {
       glSurfaceView.post(this::startCamera);
     }
 
     // Updates the preview layout.
-    FrameLayout frameLayout = findViewById(R.id.preview_display_layout);
-    frameLayout.removeAllViewsInLayout();
-    frameLayout.addView(glSurfaceView);
+    RelativeLayout relativelayout = findViewById(R.id.preview_display_layout);
+    relativelayout.removeAllViewsInLayout();
+    relativelayout.addView(glSurfaceView);
     glSurfaceView.setVisibility(View.VISIBLE);
-    frameLayout.requestLayout();
+    relativelayout.requestLayout();
   }
 
   private void startCamera() {
