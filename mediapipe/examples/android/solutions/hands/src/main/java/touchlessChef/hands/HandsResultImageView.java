@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.mediapipe.examples.hands;
+package touchlessChef.hands;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -20,11 +20,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+
 import androidx.appcompat.widget.AppCompatImageView;
-import com.google.mediapipe.formats.proto.LandmarkProto;
+
 import com.google.mediapipe.formats.proto.LandmarkProto.NormalizedLandmark;
 import com.google.mediapipe.solutions.hands.Hands;
 import com.google.mediapipe.solutions.hands.HandsResult;
+
 import java.util.List;
 
 /** An ImageView implementation for displaying {@link HandsResult}. */
@@ -44,7 +46,7 @@ public class HandsResultImageView extends AppCompatImageView {
 
   public HandsResultImageView(Context context) {
     super(context);
-    setScaleType(AppCompatImageView.ScaleType.FIT_CENTER);
+    setScaleType(ScaleType.FIT_CENTER);
   }
 
   /**
@@ -107,7 +109,7 @@ public class HandsResultImageView extends AppCompatImageView {
     Paint landmarkPaint = new Paint();
     landmarkPaint.setColor(isLeftHand ? LEFT_HAND_LANDMARK_COLOR : RIGHT_HAND_LANDMARK_COLOR);
     // Draws landmarks.
-    for (LandmarkProto.NormalizedLandmark landmark : handLandmarkList) {
+    for (NormalizedLandmark landmark : handLandmarkList) {
       canvas.drawCircle(
           landmark.getX() * width, landmark.getY() * height, LANDMARK_RADIUS, landmarkPaint);
     }
@@ -116,7 +118,7 @@ public class HandsResultImageView extends AppCompatImageView {
         isLeftHand ? LEFT_HAND_HOLLOW_CIRCLE_COLOR : RIGHT_HAND_HOLLOW_CIRCLE_COLOR);
     landmarkPaint.setStrokeWidth(HOLLOW_CIRCLE_WIDTH);
     landmarkPaint.setStyle(Paint.Style.STROKE);
-    for (LandmarkProto.NormalizedLandmark landmark : handLandmarkList) {
+    for (NormalizedLandmark landmark : handLandmarkList) {
       canvas.drawCircle(
           landmark.getX() * width,
           landmark.getY() * height,

@@ -12,16 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package com.google.mediapipe.examples.hands;
+package touchlessChef.hands;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-// ContentResolver dependency
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import touchlessChef.hands.R;
 import com.google.mediapipe.formats.proto.LandmarkProto.Landmark;
 import com.google.mediapipe.formats.proto.LandmarkProto.NormalizedLandmark;
 import com.google.mediapipe.solutioncore.CameraInput;
@@ -53,6 +54,27 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     setupLiveDemoUiComponents();
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    if (inputSource == InputSource.CAMERA) {
+      // Restarts the camera and the opengl surface rendering.
+      cameraInput = new CameraInput(this);
+      cameraInput.setNewFrameListener(textureFrame -> hands.send(textureFrame));
+      glSurfaceView.post(this::startCamera);
+      glSurfaceView.setVisibility(View.VISIBLE);
+    }
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    if (inputSource == InputSource.CAMERA) {
+      glSurfaceView.setVisibility(View.GONE);
+      cameraInput.close();
+    } 
   }
 
   /** Sets up the UI components for the live demo with camera input. */

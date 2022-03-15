@@ -19,10 +19,10 @@ package(default_visibility = ["//visibility:private"])
 android_binary(
     name = "hands",
     srcs = glob(["**/*.java"]),
-    custom_package = "com.google.mediapipe.examples.hands",
+    custom_package = "touchlessChef.hands",
     manifest = "AndroidManifest.xml",
     manifest_values = {
-        "applicationId": "com.google.mediapipe.examples.hands",
+        "applicationId": "touchlessChef.hands",
     },
     multidex = "native",
     resource_files = ["//mediapipe/examples/android/solutions:resource_files"],
