@@ -4,28 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:id="@+id/buttons"
+        style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="?android:attr/buttonBarStyle" android:gravity="center"
+        android:gravity="center"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/button_start_camera"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
-            style="?android:attr/buttonBarButtonStyle" android:layout_height="wrap_content"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
             android:text="@string/start_camera" />
+
         <Button
             android:id="@+id/button_stop_camera"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
-            style="?android:attr/buttonBarButtonStyle" android:layout_height="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/stop_camera" />
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/menu_display_layout"
         android:layout_width="match_parent"
-        android:layout_height="552dp"></RelativeLayout>
+        android:layout_height="552dp" />
     <RelativeLayout
         android:id="@+id/preview_display_layout"
         android:layout_width="match_parent"

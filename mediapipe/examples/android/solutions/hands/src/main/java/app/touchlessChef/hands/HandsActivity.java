@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package touchlessChef.hands;
+package app.touchlessChef.hands;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +22,7 @@ import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import touchlessChef.hands.R;
+import app.touchlessChef.R;
 import com.google.mediapipe.formats.proto.LandmarkProto.Landmark;
 import com.google.mediapipe.formats.proto.LandmarkProto.NormalizedLandmark;
 import com.google.mediapipe.solutioncore.CameraInput;
@@ -33,7 +33,7 @@ import com.google.mediapipe.solutions.hands.HandsOptions;
 import com.google.mediapipe.solutions.hands.HandsResult;
 
 /** Main activity of MediaPipe Hands app. */
-public class MainActivity extends AppCompatActivity {
+public class HandsActivity extends AppCompatActivity {
   private static final String TAG = "MainActivity";
   private Hands hands;
   // Run the pipeline and the model inference on GPU or CPU.
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    setContentView(R.layout.activity_hands);
     setupLiveDemoUiComponents();
   }
 

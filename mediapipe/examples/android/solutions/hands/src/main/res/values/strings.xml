@@ -1,4 +1,25 @@
 <resources>
     <string name="start_camera" translatable="false">Start Tracking</string>
     <string name="stop_camera" translatable="false">Stop Tracking</string>
+    <string name="start_hands">Hands Tracking Mode</string>
+    <string name="start_standard">Standard Mode</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_recipes">No recipes to show</string>
+    <string name="recipe_no1">Recipe #1</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="new_recipe">New recipe</string>
+    <string name="sign_out">Sign out</string>
+    <string name="your_recipe_name">Your recipe name</string>
+    <string name="a_short_description_about_this_recipe">A short description about this recipe</string>
+    <string name="select_image">Select an image</string>
+    <string name="add">Add</string>
+    <string name="new_ingredient">New ingredient</string>
+    <string name="no_ingredients">Your recipe has no ingredients, yet.</string>
+    <string name="new_instruction">New Instruction</string>
+    <string name="no_instruction">Your recipe has no instructions, yet.</string>
+    <string name="next">NEXT</string>
+    <string name="hello_world">Hello World</string>
+    <string name="delete_recipe">Delete recipe</string>
+    <string name="edit_recipe">Edit recipe</string>
 </resources>

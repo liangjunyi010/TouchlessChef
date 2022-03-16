@@ -1,35 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="touchlessChef.hands">
+    package="app.touchlessChef">
 
-  <uses-sdk
-      android:minSdkVersion="21"
-      android:targetSdkVersion="30" />
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="32" />
+    <!-- For loading images from gallery -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- For using the camera -->
+    <uses-permission android:name="android.permission.CAMERA" />
 
-  <!-- For loading images from gallery -->
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-  <!-- For using the camera -->
-  <uses-permission android:name="android.permission.CAMERA" />
-  <uses-feature android:name="android.hardware.camera" />
-  <!-- For logging solution events -->
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-feature android:name="android.hardware.camera" /> <!-- For logging solution events -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-  <application
-      android:allowBackup="true"
-      android:icon="@mipmap/ic_launcher"
-      android:label="Touchless Chef"
-      android:roundIcon="@mipmap/ic_launcher_round"
-      android:supportsRtl="true"
-      android:theme="@style/AppTheme">
-    <activity android:name=".MainActivity"
-              android:screenOrientation="portrait">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Touchless Chef"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="app.touchlessChef.HomeActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="app.touchlessChef.hands.HandsActivity"
+            android:exported="false"
+            android:parentActivityName="app.touchlessChef.HomeActivity">
 
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
-  </application>
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+        </activity>
+        <activity
+            android:name="app.touchlessChef.template.CreateRecipeActivity"
+            android:exported="false"
+            android:parentActivityName="app.touchlessChef.HomeActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity"/>
+        </activity>
+        <activity
+            android:name="app.touchlessChef.template.ViewRecipeActivity"
+            android:exported="false" />
+        <activity
+            android:name="app.touchlessChef.template.MainActivity"
+            android:exported="false" />
+    </application>
 
 </manifest>
