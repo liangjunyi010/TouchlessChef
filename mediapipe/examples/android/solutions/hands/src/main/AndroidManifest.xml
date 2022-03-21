@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="app.touchlessChef.HomeActivity"
+            android:name="app.touchlessChef.StartActivity"
             android:exported="true"
             android:screenOrientation="fullSensor">
             <intent-filter>
@@ -30,30 +30,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="app.touchlessChef.hands.HandsActivity"
+            android:name=".activity.hands.HandsActivity"
             android:exported="false"
-            android:parentActivityName="app.touchlessChef.HomeActivity">
+            android:parentActivityName="app.touchlessChef.StartActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity" />
+                android:value=".StartActivity" />
         </activity>
         <activity
-            android:name="app.touchlessChef.template.CreateRecipeActivity"
+            android:name=".activity.standard.recipe.CreateRecipeActivity"
             android:exported="false"
-            android:parentActivityName="app.touchlessChef.HomeActivity">
+            android:parentActivityName="app.touchlessChef.StartActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HomeActivity"/>
+                android:value=".StartActivity"/>
         </activity>
         <activity
-            android:name="app.touchlessChef.template.ViewRecipeActivity"
+            android:name=".activity.standard.recipe.ViewRecipeActivity"
             android:exported="false" />
         <activity
-            android:name="app.touchlessChef.template.MainActivity"
+            android:name=".activity.standard.home.MainActivity"
             android:exported="false" />
     </application>
 

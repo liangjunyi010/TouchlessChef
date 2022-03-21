@@ -5,6 +5,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import app.touchlessChef.dao.recipe.IngredientDAO;
+import app.touchlessChef.dao.recipe.InstructionDAO;
+import app.touchlessChef.dao.recipe.RecipeDAO;
+
 public class SQLiteDbCRUD extends SQLiteOpenHelper {
     private static final String TAG = SQLiteDbCRUD.class.getSimpleName();
 

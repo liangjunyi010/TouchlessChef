@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.List;
 
-import app.touchlessChef.dao.RecipeDAO;
+import app.touchlessChef.dao.recipe.RecipeDAO;
 import app.touchlessChef.dao.SQLiteDbCRUD;
 import app.touchlessChef.model.Recipe;
 
