@@ -22,4 +22,7 @@
     <string name="hello_world">Hello World</string>
     <string name="delete_recipe">Delete recipe</string>
     <string name="edit_recipe">Edit recipe</string>
+    <string name="recipe_no_ingredients">This recipe has no ingredients.</string>
+    <string name="recipe_no_instructions">This recipe has no instructions.</string>
+    <string name="recipe_update_image">Update recipe image</string>
 </resources>

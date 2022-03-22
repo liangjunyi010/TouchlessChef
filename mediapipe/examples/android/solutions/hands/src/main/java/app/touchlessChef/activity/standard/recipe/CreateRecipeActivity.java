@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.List;
+import java.util.Objects;
 
 import app.touchlessChef.R;
 import app.touchlessChef.adapter.DatabaseAdapter;
@@ -35,7 +36,7 @@ import app.touchlessChef.fragment.recipe.NavigableFragment;
 import app.touchlessChef.fragment.recipe.RecipeImageFragment;
 import app.touchlessChef.fragment.recipe.RecipeIngredientFragment;
 import app.touchlessChef.fragment.recipe.RecipeInstructionFragment;
-import app.touchlessChef.RecipeValues;
+import app.touchlessChef.constants.RecipeEditConstants;
 
 public class CreateRecipeActivity extends AppCompatActivity implements
         RecipeImageFragment.ImageListener, RecipeInstructionFragment.InstructionListener,
@@ -46,12 +47,9 @@ public class CreateRecipeActivity extends AppCompatActivity implements
 
     private Recipe currentRecipe;
     private boolean isUpdating;
-    private String currentCategory;
     private DatabaseAdapter databaseAdapter;
 
     private Button nextButton;
-    private Toolbar mToolbar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +63,7 @@ public class CreateRecipeActivity extends AppCompatActivity implements
         if (isUpdating)
             currentRecipe = intent.getParcelableExtra("recipe");
         else {
-            currentCategory = intent.getStringExtra("category");
+            String currentCategory = intent.getStringExtra("category");
             currentRecipe = new Recipe(currentCategory);
         }
 
@@ -75,12 +73,9 @@ public class CreateRecipeActivity extends AppCompatActivity implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                break;
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -93,24 +88,20 @@ public class CreateRecipeActivity extends AppCompatActivity implements
             displayFragment(1);
         else
             super.onBackPressed();
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case REQUEST_OPEN_GALLERY:
-                switch (resultCode) {
-                    case RESULT_OK:
-                        Uri imageData = data.getData();
-                        String imageSrc = Files.getRealPathFromURI(this, imageData);
-                        ((RecipeImageFragment) getSupportFragmentManager().findFragmentById(R.id.frame_container))
-                                .onImageSelected(imageSrc);
+        if (requestCode == REQUEST_OPEN_GALLERY) {
+            if (resultCode == RESULT_OK) {
+                Uri imageData = data.getData();
+                String imageSrc = Files.getRealPathFromURI(this, imageData);
+                ((RecipeImageFragment) Objects.requireNonNull(getSupportFragmentManager()
+                        .findFragmentById(R.id.frame_container))).onImageSelected(imageSrc);
 
-                        currentRecipe.setImagePath(imageSrc);
-                        break;
-                }
+                currentRecipe.setImagePath(imageSrc);
+            }
         }
     }
 
@@ -118,15 +109,13 @@ public class CreateRecipeActivity extends AppCompatActivity implements
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case REQUEST_TO_ACCESS_GALLERY:
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                    openGallery();
-                else
-                    Toast.makeText(this, "Permission denied to access the gallery.", Toast.LENGTH_LONG)
-                            .show();
-                break;
+        if (requestCode == REQUEST_TO_ACCESS_GALLERY) {
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                openGallery();
+            else
+                Toast.makeText(this, "Permission denied to access the gallery.", Toast.LENGTH_LONG)
+                        .show();
         }
     }
 
@@ -157,18 +146,20 @@ public class CreateRecipeActivity extends AppCompatActivity implements
 
         nextButton.setText(nextButtonText);
 
+        assert fragment != null;
         ft.replace(R.id.frame_container, fragment, "fragment" + position);
         ft.commit();
     }
 
     public void onNext(View view) {
-        ((NavigableFragment) getSupportFragmentManager().findFragmentById(R.id.frame_container)).onNext();
+        ((NavigableFragment) Objects.requireNonNull(getSupportFragmentManager()
+                .findFragmentById(R.id.frame_container))).onNext();
     }
 
     private void initializeUI() {
-        mToolbar = findViewById(R.id.toolbar);
+        Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         nextButton = findViewById(R.id.nextButton);
@@ -209,7 +200,7 @@ public class CreateRecipeActivity extends AppCompatActivity implements
             databaseAdapter.addNewRecipe(currentRecipe);
 
         Log.i("CreateRecipeActivity", "Final recipe: " + currentRecipe);
-        setResult(isUpdating ? RecipeValues.RECIPE_EDITED : RecipeValues.RECIPE_ADDED);
+        setResult(isUpdating ? RecipeEditConstants.RECIPE_EDITED : RecipeEditConstants.RECIPE_ADDED);
         finish();
     }
 
@@ -227,7 +218,8 @@ public class CreateRecipeActivity extends AppCompatActivity implements
                 String[] column = {MediaStore.Images.Media.DATA};
                 String sel = MediaStore.Images.Media._ID + "=?";
 
-                Cursor cursor = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                Cursor cursor = context.getContentResolver()
+                        .query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                         column, sel, new String[]{id}, null);
 
                 int columnIndex = cursor.getColumnIndex(column[0]);

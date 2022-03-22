@@ -5,14 +5,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import app.touchlessChef.CuisineValues;
+import app.touchlessChef.constants.RecipeConstants;
 import app.touchlessChef.fragment.home.ChineseFragment;
 import app.touchlessChef.fragment.home.VietnamFragment;
 
-public class MainPagerAdapter extends FragmentStatePagerAdapter {
-    private static final int TAB_COUNT = CuisineValues.TOTAL;
+public class HomePagerAdapter extends FragmentStatePagerAdapter {
+    private static final int TAB_COUNT = RecipeConstants.CUISINE_COUNT;
 
-    public MainPagerAdapter(@NonNull FragmentManager fm) {
+    public HomePagerAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
 
@@ -22,12 +22,13 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
         Fragment frag = null;
         switch (position) {
             case 0:
-                frag = VietnamFragment.newInstance(CuisineValues.VIETNAMESE);
+                frag = VietnamFragment.newInstance(RecipeConstants.VIETNAMESE);
                 break;
             case 1:
-                frag = ChineseFragment.newInstance(CuisineValues.CHINESE);
+                frag = ChineseFragment.newInstance(RecipeConstants.CHINESE);
                 break;
         }
+        assert frag != null;
         return frag;
     }
 
@@ -37,7 +38,7 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     @Override
-    public int getItemPosition(Object object) {
+    public int getItemPosition(@NonNull Object object) {
         return POSITION_NONE;
     }
 
@@ -46,10 +47,10 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
         String title = null;
         switch (position) {
             case 0:
-                title = CuisineValues.VIETNAMESE;
+                title = RecipeConstants.VIETNAMESE;
                 break;
             case 1:
-                title = CuisineValues.CHINESE;
+                title = RecipeConstants.CHINESE;
                 break;
         }
         return title;

@@ -27,12 +27,10 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         void onDeleteRecipe(long recipeId);
     }
 
-    private List<Recipe> recipeList;
-    private Context mContext;
+    private final List<Recipe> recipeList;
     private RecipeListener recipeListener;
 
-    public RecipeAdapter(Context mContext, List<Recipe> recipeList) {
-        this.mContext = mContext;
+    public RecipeAdapter(List<Recipe> recipeList) {
         this.recipeList = recipeList;
     }
 
@@ -95,7 +93,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 
         class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
 
-            private Recipe recipe;
+            private final Recipe recipe;
 
             public MyMenuItemClickListener(Recipe recipe) {
                 this.recipe = recipe;

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -50,7 +51,6 @@ public class RecipeImageFragment extends NavigableFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recipe_image, container, false);
         recipeImage = view.findViewById(R.id.recipe_image);
         selectImageBtn = view.findViewById(R.id.choose_image);
@@ -76,12 +76,12 @@ public class RecipeImageFragment extends NavigableFragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(@NonNull Activity activity) {
         super.onAttach(activity);
         try {
             mListener = (ImageListener) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
+            throw new ClassCastException(activity
                     + " must implement ImageListener");
         }
     }
@@ -129,7 +129,7 @@ public class RecipeImageFragment extends NavigableFragment {
         currentRecipeImage = imagePath;
         if (!currentRecipeImage.isEmpty()) {
             recipeImage.setImageURI(Uri.fromFile(new File(currentRecipeImage)));
-            selectImageBtn.setText("Update recipe image");
+            selectImageBtn.setText(R.string.recipe_update_image);
         }
     }
     public interface ImageListener {

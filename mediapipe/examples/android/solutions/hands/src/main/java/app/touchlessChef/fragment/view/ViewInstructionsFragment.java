@@ -24,16 +24,11 @@ import app.touchlessChef.model.Instruction;
  * create an instance of this fragment.
  */
 public class ViewInstructionsFragment extends Fragment {
-
     private List<Instruction> instructionList;
-    private InstructionAdapter instructionAdapter;
-
     private RecyclerView instructionRecyclerView;
     private TextView emptyView;
 
-    public ViewInstructionsFragment() {
-        // Required empty public constructor
-    }
+    public ViewInstructionsFragment() {}
 
     public static ViewInstructionsFragment newInstance(List<Instruction> instructions) {
         ViewInstructionsFragment fragment = new ViewInstructionsFragment();
@@ -48,7 +43,6 @@ public class ViewInstructionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view_instructions, container, false);
 
         Bundle args = getArguments();
@@ -58,7 +52,7 @@ public class ViewInstructionsFragment extends Fragment {
         instructionRecyclerView = view.findViewById(R.id.recyclerView);
         emptyView = view.findViewById(R.id.empty_view);
 
-        instructionAdapter = new InstructionAdapter(getActivity(), instructionList, false);
+        InstructionAdapter instructionAdapter = new InstructionAdapter(instructionList, false);
         toggleEmptyView();
 
         instructionRecyclerView.setHasFixedSize(true);

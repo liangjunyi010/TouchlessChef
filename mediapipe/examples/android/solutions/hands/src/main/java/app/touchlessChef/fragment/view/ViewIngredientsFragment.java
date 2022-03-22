@@ -45,7 +45,6 @@ public class ViewIngredientsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view_ingredients, container, false);
 
         Bundle args = getArguments();
@@ -55,7 +54,7 @@ public class ViewIngredientsFragment extends Fragment {
         ingredientRecyclerView = view.findViewById(R.id.recyclerView);
         emptyView = view.findViewById(R.id.empty_view);
 
-        IngredientAdapter ingredientAdapter = new IngredientAdapter(getActivity(), ingredientList, false);
+        IngredientAdapter ingredientAdapter = new IngredientAdapter(ingredientList, false);
         toggleEmptyView();
 
         ingredientRecyclerView.setHasFixedSize(true);

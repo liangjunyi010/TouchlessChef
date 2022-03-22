@@ -15,18 +15,15 @@ import app.touchlessChef.R;
 import app.touchlessChef.model.Instruction;
 
 public class InstructionAdapter extends RecyclerView.Adapter<InstructionAdapter.InstructionViewHolder>{
-    private List<Instruction> instructionList;
+    private final List<Instruction> instructionList;
     private boolean isEditable = true;
-    private Context mContext;
     private InstructionListener instructionListener;
 
-    public InstructionAdapter(Context context, List<Instruction> instructionList) {
-        mContext = context;
+    public InstructionAdapter(List<Instruction> instructionList) {
         this.instructionList = instructionList;
     }
 
-    public InstructionAdapter(Context context, List<Instruction> instructionList, boolean isEditable) {
-        mContext = context;
+    public InstructionAdapter(List<Instruction> instructionList, boolean isEditable) {
         this.instructionList = instructionList;
         this.isEditable = isEditable;
     }
@@ -39,7 +36,8 @@ public class InstructionAdapter extends RecyclerView.Adapter<InstructionAdapter.
     @Override
     public InstructionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(viewType == 0 ? R.layout.adapter_recipe_instruction_item_row_editable : R.layout.adapter_recipe_iinstruction_item_row_non_editable,
+                .inflate(viewType == 0 ? R.layout.adapter_recipe_instruction_item_row_editable
+                                : R.layout.adapter_recipe_iinstruction_item_row_non_editable,
                         parent, false);
         return new InstructionViewHolder(v);
     }

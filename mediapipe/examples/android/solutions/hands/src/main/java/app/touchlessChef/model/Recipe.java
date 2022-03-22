@@ -3,6 +3,8 @@ package app.touchlessChef.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -111,10 +113,6 @@ public class Recipe implements Parcelable {
         return category;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -147,6 +145,7 @@ public class Recipe implements Parcelable {
         this.imagePath = imagePath;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Recipe{" +

@@ -5,7 +5,6 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.Menu;
@@ -23,19 +22,22 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.Objects;
+
 import app.touchlessChef.R;
+import app.touchlessChef.activity.standard.MenuActivity;
 import app.touchlessChef.adapter.DatabaseAdapter;
-import app.touchlessChef.adapter.pager.MainPagerAdapter;
+import app.touchlessChef.adapter.pager.HomePagerAdapter;
 import app.touchlessChef.model.Recipe;
 import app.touchlessChef.fragment.home.BaseFragment;
 import app.touchlessChef.activity.standard.recipe.CreateRecipeActivity;
 import app.touchlessChef.activity.standard.recipe.ViewRecipeActivity;
-import app.touchlessChef.RecipeValues;
+import app.touchlessChef.constants.RecipeEditConstants;
 
 public class MainActivity extends MenuActivity implements BaseFragment.FragmentListener {
     private static final int REQUEST_ADD_RECIPE = 1;
     private static final int REQUEST_VIEW_RECIPE = 2;
-    private MainPagerAdapter mAdapter;
+    private HomePagerAdapter mAdapter;
     private DatabaseAdapter databaseAdapter;
 
     private ViewPager mViewPager;
@@ -56,7 +58,7 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
 
         mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("touchlessChef");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("touchlessChef");
 
         mViewPager = findViewById(R.id.viewpager);
         TabLayout myTabLayout = findViewById(R.id.tablayout);
@@ -65,7 +67,7 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
         secondView = findViewById(R.id.secondView);
         mViewSwitcher = findViewById(R.id.switcher);
         myTabLayout.bringToFront();
-        mAdapter = new MainPagerAdapter(getSupportFragmentManager());
+        mAdapter = new HomePagerAdapter(getSupportFragmentManager());
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
         myCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
@@ -117,13 +119,11 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.new_recipe:
-                Intent intent = new Intent(this, CreateRecipeActivity.class);
-                intent.putExtra("category", getCurrentlyDisplayedCategory());
-                startActivityForResult(intent, REQUEST_ADD_RECIPE);
-                break;
-//            case R.id.sign_out:
+        if (item.getItemId() == R.id.new_recipe) {
+            Intent intent = new Intent(this, CreateRecipeActivity.class);
+            intent.putExtra("category", getCurrentlyDisplayedCategory());
+            startActivityForResult(intent, REQUEST_ADD_RECIPE);
+            //            case R.id.sign_out:
 //                UserPreferences.clear(this);
 //                navigateToLogin();
 //                break;
@@ -138,11 +138,11 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
         switch (requestCode) {
             case REQUEST_ADD_RECIPE:
                 switch (resultCode) {
-                    case RecipeValues.RECIPE_ADDED:
+                    case RecipeEditConstants.RECIPE_ADDED:
                         Snackbar.make(getWindow().getDecorView(), "Recipe added.", Snackbar.LENGTH_LONG)
                                 .show();
                         break;
-                    case RecipeValues.RECIPE_EDITED:
+                    case RecipeEditConstants.RECIPE_EDITED:
                         Snackbar.make(getWindow().getDecorView(), "Recipe modified.", Snackbar.LENGTH_LONG)
                                 .show();
                         break;
@@ -150,7 +150,7 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
                 break;
             case REQUEST_VIEW_RECIPE:
                 switch (resultCode) {
-                    case RecipeValues.RECIPE_SHOULD_BE_EDITED:
+                    case RecipeEditConstants.RECIPE_SHOULD_BE_EDITED:
                         Recipe recipe = data.getParcelableExtra("recipe");
                         Intent intent = new Intent(this, CreateRecipeActivity.class);
                         intent.putExtra("recipe", recipe);
@@ -158,11 +158,11 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
                         intent.putExtra("isUpdating", true);
                         startActivityForResult(intent, REQUEST_ADD_RECIPE);
                         break;
-                    case RecipeValues.RECIPE_SHOULD_BE_DELETED:
+                    case RecipeEditConstants.RECIPE_SHOULD_BE_DELETED:
                         long recipeId = data.getLongExtra("recipeId", -1);
                         if (recipeId != -1) {
                             onDeleteRecipe(recipeId);
-                            mViewPager.getAdapter().notifyDataSetChanged();
+                            Objects.requireNonNull(mViewPager.getAdapter()).notifyDataSetChanged();
                         }
                         break;
                 }
@@ -171,7 +171,7 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
     }
 
     private String getCurrentlyDisplayedCategory() {
-        return mAdapter.getPageTitle(mViewPager.getCurrentItem()).toString();
+        return Objects.requireNonNull(mAdapter.getPageTitle(mViewPager.getCurrentItem())).toString();
     }
 
 //    private void navigateToLogin() {
@@ -209,14 +209,10 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
                                                                View sharedView,
                                                                String transitionName,
                                                                int requestCode) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
-            ((Activity) context).startActivityForResult(intent, requestCode);
-        else {
-            ActivityOptions transitionActivityOptions =
-                    ActivityOptions.makeSceneTransitionAnimation(
-                            (Activity) context, sharedView, transitionName);
-            ((Activity) context).startActivityForResult(
-                    intent, requestCode, transitionActivityOptions.toBundle());
-        }
+        ActivityOptions transitionActivityOptions =
+                ActivityOptions.makeSceneTransitionAnimation(
+                        (Activity) context, sharedView, transitionName);
+        ((Activity) context).startActivityForResult(
+                intent, requestCode, transitionActivityOptions.toBundle());
     }
 }

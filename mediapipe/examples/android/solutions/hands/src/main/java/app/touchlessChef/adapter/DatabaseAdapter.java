@@ -1,5 +1,6 @@
 package app.touchlessChef.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -13,21 +14,18 @@ public class DatabaseAdapter {
     /**
      * The singleton instance.
      */
+    @SuppressLint("StaticFieldLeak")
     private static DatabaseAdapter instance;
     private static final String DATABASE_NAME = "recipesDatabase";
     private static final int DATABASE_VERSION = 1;
 
-    private SQLiteDbCRUD dbCRUD;
-    private SQLiteDatabase db;
-    private Context mContext;
-
+    private final SQLiteDbCRUD dbCRUD;
 //    private UserDAO userDAO;
     private RecipeDAO recipeDAO;
 
     /**
      * A static factory method.
      *
-     * @param context
      * @return the singleton instance of the DatabaseAdapter.
      */
     public static DatabaseAdapter getInstance(Context context) {
@@ -41,12 +39,11 @@ public class DatabaseAdapter {
     }
 
     private DatabaseAdapter(Context context) {
-        mContext = context;
         dbCRUD = new SQLiteDbCRUD(context, DATABASE_NAME, DATABASE_VERSION);
     }
 
     private DatabaseAdapter open() {
-        db = dbCRUD.getWritableDatabase();
+        SQLiteDatabase db = dbCRUD.getWritableDatabase();
 //        userDAO = new UserDAO(db);
         recipeDAO = new RecipeDAO(db);
         return this;
@@ -62,8 +59,8 @@ public class DatabaseAdapter {
 //        userDAO.insert(user);
 //    }
 
-    public long addNewRecipe(Recipe recipe) {
-        return recipeDAO.insert(recipe);
+    public void addNewRecipe(Recipe recipe) {
+        recipeDAO.insert(recipe);
     }
 
     public void updateRecipe(Recipe recipe) {

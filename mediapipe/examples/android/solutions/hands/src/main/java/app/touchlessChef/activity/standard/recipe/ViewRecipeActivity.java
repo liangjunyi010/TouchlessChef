@@ -17,16 +17,15 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.File;
+import java.util.Objects;
 
-import app.touchlessChef.adapter.DatabaseAdapter;
-import app.touchlessChef.adapter.pager.ViewPagerAdapter;
+import app.touchlessChef.adapter.pager.RecipePagerAdapter;
 import app.touchlessChef.model.Recipe;
 import app.touchlessChef.R;
-import app.touchlessChef.activity.standard.home.MenuActivity;
-import app.touchlessChef.RecipeValues;
+import app.touchlessChef.activity.standard.MenuActivity;
+import app.touchlessChef.constants.RecipeEditConstants;
 
 public class ViewRecipeActivity extends MenuActivity {
-    private ViewPagerAdapter mAdapter;
     private Recipe currentRecipe;
 
     private ImageView mRecipeImage;
@@ -45,11 +44,10 @@ public class ViewRecipeActivity extends MenuActivity {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         currentRecipe = getIntent().getParcelableExtra("recipe");
-        DatabaseAdapter databaseAdapter = DatabaseAdapter.getInstance(this);
         findViewsById();
 
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle(currentRecipe.getName());
+        Objects.requireNonNull(getSupportActionBar()).setTitle(currentRecipe.getName());
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -57,7 +55,7 @@ public class ViewRecipeActivity extends MenuActivity {
         mRecipeDescription.setText(currentRecipe.getDescription());
 
         mTabLayout.bringToFront();
-        mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), currentRecipe);
+        RecipePagerAdapter mAdapter = new RecipePagerAdapter(getSupportFragmentManager(), currentRecipe);
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
         mCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
@@ -81,13 +79,13 @@ public class ViewRecipeActivity extends MenuActivity {
             case R.id.edit_recipe:
                 Intent intent = new Intent();
                 intent.putExtra("recipe", currentRecipe);
-                setResult(RecipeValues.RECIPE_SHOULD_BE_EDITED, intent);
+                setResult(RecipeEditConstants.RECIPE_SHOULD_BE_EDITED, intent);
                 finish();
                 break;
             case R.id.delete_recipe:
                 Intent data = new Intent();
                 data.putExtra("recipeId", currentRecipe.getId());
-                setResult(RecipeValues.RECIPE_SHOULD_BE_DELETED, data);
+                setResult(RecipeEditConstants.RECIPE_SHOULD_BE_DELETED, data);
                 finish();
                 break;
             case android.R.id.home:

@@ -3,6 +3,8 @@ package app.touchlessChef.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+
 public class Instruction implements Parcelable {
     private long id;
     private String content;
@@ -72,6 +74,7 @@ public class Instruction implements Parcelable {
         this.recipeId = recipeId;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Instruction{" +

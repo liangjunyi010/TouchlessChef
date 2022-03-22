@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -15,18 +16,15 @@ import app.touchlessChef.model.Ingredient;
 import app.touchlessChef.R;
 
 public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>{
-    private List<Ingredient> ingredientList;
+    private final List<Ingredient> ingredientList;
     private boolean isEditable = true;
-    private Context mContext;
     private IngredientListener ingredientListener;
 
-    public IngredientAdapter(Context context, List<Ingredient> ingredientList) {
-        mContext = context;
+    public IngredientAdapter(List<Ingredient> ingredientList) {
         this.ingredientList = ingredientList;
     }
 
-    public IngredientAdapter(Context context, List<Ingredient> ingredientList, boolean isEditable) {
-        mContext = context;
+    public IngredientAdapter(List<Ingredient> ingredientList, boolean isEditable) {
         this.ingredientList = ingredientList;
         this.isEditable = isEditable;
     }
@@ -36,10 +34,12 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
         return isEditable ? 0 : 1;
     }
 
+    @NonNull
     @Override
     public IngredientViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(viewType == 0 ? R.layout.adapter_recipe_ingredient_item_row_editable : R.layout.adapter_recipe_ingredient_item_row_non_editable,
+                .inflate(viewType == 0 ? R.layout.adapter_recipe_ingredient_item_row_editable
+                                : R.layout.adapter_recipe_ingredient_item_row_non_editable,
                         parent, false);
         return new IngredientViewHolder(v);
     }

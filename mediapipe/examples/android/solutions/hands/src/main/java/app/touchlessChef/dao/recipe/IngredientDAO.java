@@ -11,7 +11,7 @@ import java.util.List;
 import app.touchlessChef.model.Ingredient;
 
 public class IngredientDAO {
-    private SQLiteDatabase db;
+    private final SQLiteDatabase db;
 
     public IngredientDAO(SQLiteDatabase db) {
         this.db = db;
@@ -40,13 +40,12 @@ public class IngredientDAO {
                 } while (cursor.moveToNext());
             }
         }
-
         Log.i("DAO", "IngredientDAO returning: " + ingredients + " for recipe ID: " + recipeId);
         return ingredients;
     }
 
-    public boolean deleteAllByRecipeId(long recipeId) {
-        return db.delete(Config.TABLE_NAME, Config.KEY_RECIPE_ID + "=" + recipeId, null) > 0;
+    public void deleteAllByRecipeId(long recipeId) {
+        db.delete(Config.TABLE_NAME, Config.KEY_RECIPE_ID + "=" + recipeId, null);
     }
 
     public static class Config {

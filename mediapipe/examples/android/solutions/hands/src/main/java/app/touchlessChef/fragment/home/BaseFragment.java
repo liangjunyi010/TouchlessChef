@@ -19,7 +19,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.touchlessChef.CuisineValues;
+import app.touchlessChef.constants.RecipeConstants;
 import app.touchlessChef.adapter.DatabaseAdapter;
 import app.touchlessChef.adapter.recipe.RecipeAdapter;
 import app.touchlessChef.model.Recipe;
@@ -50,15 +50,11 @@ public abstract class BaseFragment extends Fragment {
 
     public static Fragment newInstance(String category) {
         Fragment fragment;
-        switch (category) {
-            case CuisineValues.CHINESE:
-                fragment = new ChineseFragment();
-                break;
-            default:
-                fragment = new VietnamFragment();
-                break;
+        if (RecipeConstants.CHINESE.equals(category)) {
+            fragment = new ChineseFragment();
+        } else {
+            fragment = new VietnamFragment();
         }
-
         Bundle args = new Bundle();
         args.putString("category", category);
         fragment.setArguments(args);
@@ -70,10 +66,10 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View rootView = inflater.inflate(getFragmentLayout(), container, false);
 
         Bundle args = getArguments();
+        assert args != null;
         currentCategory = args.getString("category");
 
         recipeRecyclerView = rootView.findViewById(R.id.recyclerView);
@@ -91,7 +87,7 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(@NonNull Activity activity) {
         super.onAttach(activity);
         try {
             fragmentListener = (FragmentListener) activity;
@@ -109,7 +105,7 @@ public abstract class BaseFragment extends Fragment {
     public void refresh() {
         recipes = databaseAdapter.getAllRecipesByCategory(currentCategory);
         toggleEmptyView();
-        recipeAdapter = new RecipeAdapter(getActivity(), recipes);
+        recipeAdapter = new RecipeAdapter(recipes);
         recipeAdapter.setRecipeListener(new RecipeAdapter.RecipeListener() {
             @Override
             public void onShowRecipe(Recipe recipe, Pair<View, String>[] pairs) {

@@ -1,12 +1,8 @@
 package app.touchlessChef.fragment.recipe;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import app.touchlessChef.R;
-import app.touchlessChef.adapter.DatabaseAdapter;
 import app.touchlessChef.adapter.recipe.IngredientAdapter;
 import app.touchlessChef.model.Ingredient;
 import app.touchlessChef.model.Recipe;
@@ -35,12 +35,9 @@ public class RecipeIngredientFragment extends NavigableFragment {
 
     private RecyclerView ingredientRecyclerView;
     private TextView emptyView;
-    private Button addButton;
     private EditText ingredientField;
 
-    public RecipeIngredientFragment() {
-        // Required empty public constructor
-    }
+    public RecipeIngredientFragment() {}
 
     public static RecipeIngredientFragment newInstance(Recipe recipe) {
         RecipeIngredientFragment fragment = new RecipeIngredientFragment();
@@ -50,16 +47,14 @@ public class RecipeIngredientFragment extends NavigableFragment {
             args.putParcelableArrayList("ingredients", (ArrayList<Ingredient>) recipe.getIngredients());
             fragment.setArguments(args);
         }
-
         return fragment;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recipe_ingredient, container, false);
-        DatabaseAdapter databaseAdapter = DatabaseAdapter.getInstance(getActivity());
 
         Bundle args = getArguments();
         if (args != null)
@@ -69,9 +64,9 @@ public class RecipeIngredientFragment extends NavigableFragment {
 
         ingredientRecyclerView = view.findViewById(R.id.recyclerView);
         emptyView = view.findViewById(R.id.empty_view);
-        addButton = view.findViewById(R.id.add_button);
+        Button addButton = view.findViewById(R.id.add_button);
         ingredientField = view.findViewById(R.id.ingredientField);
-        ingredientAdapter = new IngredientAdapter(getActivity(), ingredientList);
+        ingredientAdapter = new IngredientAdapter(ingredientList);
         ingredientAdapter.setIngredientListener(position -> {
             ingredientList.remove(position);
             toggleEmptyView();
@@ -108,7 +103,7 @@ public class RecipeIngredientFragment extends NavigableFragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(@NonNull Activity activity) {
         super.onAttach(activity);
         try {
             myListener = (IngredientListener) activity;

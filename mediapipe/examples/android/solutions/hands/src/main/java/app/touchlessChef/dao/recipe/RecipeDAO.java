@@ -13,10 +13,10 @@ import app.touchlessChef.model.Instruction;
 import app.touchlessChef.model.Recipe;
 
 public class RecipeDAO {
-    private SQLiteDatabase db;
+    private final SQLiteDatabase db;
 
-    private IngredientDAO ingredientDAO;
-    private InstructionDAO instructionDAO;
+    private final IngredientDAO ingredientDAO;
+    private final InstructionDAO instructionDAO;
 
     public RecipeDAO(SQLiteDatabase db) {
         this.db = db;
@@ -25,7 +25,7 @@ public class RecipeDAO {
         instructionDAO = new InstructionDAO(db);
     }
 
-    public long insert(Recipe recipe) {
+    public void insert(Recipe recipe) {
         if (recipe.getIngredients() == null || recipe.getInstructions() == null)
             throw new IllegalStateException("Cannot insert recipe: the recipe is incomplete.");
 
@@ -42,8 +42,6 @@ public class RecipeDAO {
             instructionDAO.insert(instruction);
             Log.i("DAO", "Inserted " + instruction);
         }
-
-        return newRecipeId;
     }
 
     private long insert(String name, String category, String description, String imagePath) {
@@ -100,10 +98,10 @@ public class RecipeDAO {
         db.update(Config.TABLE_NAME, values, Config.KEY_ID + "=" + recipe.getId(), null);
     }
 
-    public boolean deleteById(long id) {
+    public void deleteById(long id) {
         ingredientDAO.deleteAllByRecipeId(id);
         instructionDAO.deleteAllByRecipeId(id);
-        return db.delete(Config.TABLE_NAME, Config.KEY_ID + "=" + id, null) > 0;
+        db.delete(Config.TABLE_NAME, Config.KEY_ID + "=" + id, null);
     }
 
     public static class Config {
