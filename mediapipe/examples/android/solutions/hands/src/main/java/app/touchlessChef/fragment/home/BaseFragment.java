@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.touchlessChef.CuisineValues;
 import app.touchlessChef.adapter.DatabaseAdapter;
 import app.touchlessChef.adapter.recipe.RecipeAdapter;
 import app.touchlessChef.model.Recipe;
@@ -49,9 +51,9 @@ public abstract class BaseFragment extends Fragment {
     public static Fragment newInstance(String category) {
         Fragment fragment;
         switch (category) {
-//            case "Asian":
-//                fragment = new VietnamFragment();
-//                break;
+            case CuisineValues.CHINESE:
+                fragment = new ChineseFragment();
+                break;
             default:
                 fragment = new VietnamFragment();
                 break;
@@ -88,15 +90,15 @@ public abstract class BaseFragment extends Fragment {
         refresh();
     }
 
-//    @Override
-//    public void onAttach(Activity activity) {
-//        super.onAttach(activity);
-//        try {
-//            fragmentListener = (FragmentListener) activity;
-//        } catch (ClassCastException e) {
-//            throw new ClassCastException(activity + " must implement FragmentListener");
-//        }
-//    }
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            fragmentListener = (FragmentListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity + " must implement FragmentListener");
+        }
+    }
 
     @Override
     public void onDetach() {

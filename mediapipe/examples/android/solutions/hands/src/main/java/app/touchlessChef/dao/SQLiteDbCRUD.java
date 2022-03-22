@@ -34,4 +34,6 @@ public class SQLiteDbCRUD extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + RecipeDAO.Config.TABLE_NAME);
         onCreate(db);
     }
+
+
 }

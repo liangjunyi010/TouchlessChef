@@ -32,7 +32,6 @@ public class RecipeIngredientFragment extends NavigableFragment {
     private IngredientListener myListener;
     private List<Ingredient> ingredientList;
     private IngredientAdapter ingredientAdapter;
-    private DatabaseAdapter databaseAdapter;
 
     private RecyclerView ingredientRecyclerView;
     private TextView emptyView;
@@ -60,7 +59,7 @@ public class RecipeIngredientFragment extends NavigableFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recipe_ingredient, container, false);
-        databaseAdapter = DatabaseAdapter.getInstance(getActivity());
+        DatabaseAdapter databaseAdapter = DatabaseAdapter.getInstance(getActivity());
 
         Bundle args = getArguments();
         if (args != null)

@@ -11,7 +11,7 @@ import app.touchlessChef.fragment.view.ViewInstructionsFragment;
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     private static final int TAB_COUNT = 2;
     private final Recipe recipe;
-    private String[] tabTitles = {"Ingredients", "Directions"};
+    private String[] tabTitles = {"Ingredients", "Instructions"};
 
     public ViewPagerAdapter(FragmentManager fm, Recipe recipe) {
         super(fm);

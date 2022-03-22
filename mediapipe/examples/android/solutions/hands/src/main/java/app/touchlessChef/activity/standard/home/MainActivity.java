@@ -1,7 +1,11 @@
 package app.touchlessChef.activity.standard.home;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.Menu;
@@ -26,18 +30,18 @@ import app.touchlessChef.model.Recipe;
 import app.touchlessChef.fragment.home.BaseFragment;
 import app.touchlessChef.activity.standard.recipe.CreateRecipeActivity;
 import app.touchlessChef.activity.standard.recipe.ViewRecipeActivity;
-import app.touchlessChef.utils.ActivityTransition;
-import app.touchlessChef.utils.RecipeValues;
+import app.touchlessChef.RecipeValues;
 
 public class MainActivity extends MenuActivity implements BaseFragment.FragmentListener {
     private static final int REQUEST_ADD_RECIPE = 1;
     private static final int REQUEST_VIEW_RECIPE = 2;
-    private MainPagerAdapter myAdapter;
+    private MainPagerAdapter mAdapter;
+    private DatabaseAdapter databaseAdapter;
 
-    private ViewPager myViewPager;
+    private ViewPager mViewPager;
     private ImageView firstView;
     private ImageView secondView;
-    private ViewSwitcher myViewSwitcher;
+    private ViewSwitcher mViewSwitcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,34 +52,33 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        DatabaseAdapter databaseAdapter = DatabaseAdapter.getInstance(this);
+        databaseAdapter = DatabaseAdapter.getInstance(this);
 
-        myToolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(myToolbar);
-        getSupportActionBar().setTitle("Recipes");
+        mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("touchlessChef");
 
-        myViewPager = findViewById(R.id.viewpager);
+        mViewPager = findViewById(R.id.viewpager);
         TabLayout myTabLayout = findViewById(R.id.tablayout);
         CollapsingToolbarLayout myCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         firstView = findViewById(R.id.firstView);
         secondView = findViewById(R.id.secondView);
-        myViewSwitcher = findViewById(R.id.switcher);
+        mViewSwitcher = findViewById(R.id.switcher);
         myTabLayout.bringToFront();
-        myAdapter = new MainPagerAdapter(getSupportFragmentManager());
+        mAdapter = new MainPagerAdapter(getSupportFragmentManager());
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
         myCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
         myCollapsingToolbarLayout.setExpandedTitleTypeface(font);
 
-        myViewPager.setAdapter(myAdapter);
-        myTabLayout.setupWithViewPager(myViewPager);
-        myViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(myTabLayout));
-        myTabLayout.setTabsFromPagerAdapter(myAdapter);
+        mViewPager.setAdapter(mAdapter);
+        myTabLayout.setupWithViewPager(mViewPager);
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(myTabLayout));
+        myTabLayout.setTabsFromPagerAdapter(mAdapter);
 
-        myViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
@@ -85,17 +88,17 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
                     case 0:
                         image = R.drawable.vn_botloc;
                         break;
-//                    case 1:
-//                        image = R.drawable.vegan;
-//                        break;
+                    case 1:
+                        image = R.drawable.chn_dumpling;
+                        break;
                 }
 
                 if (firstView.getVisibility() == View.VISIBLE) {
                     secondView.setImageResource(image);
-                    myViewSwitcher.showNext();
+                    mViewSwitcher.showNext();
                 } else {
                     firstView.setImageResource(image);
-                    myViewSwitcher.showPrevious();
+                    mViewSwitcher.showPrevious();
                 }
             }
 
@@ -159,7 +162,7 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
                         long recipeId = data.getLongExtra("recipeId", -1);
                         if (recipeId != -1) {
                             onDeleteRecipe(recipeId);
-                            myViewPager.getAdapter().notifyDataSetChanged();
+                            mViewPager.getAdapter().notifyDataSetChanged();
                         }
                         break;
                 }
@@ -168,7 +171,7 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
     }
 
     private String getCurrentlyDisplayedCategory() {
-        return myAdapter.getPageTitle(myViewPager.getCurrentItem()).toString();
+        return mAdapter.getPageTitle(mViewPager.getCurrentItem()).toString();
     }
 
 //    private void navigateToLogin() {
@@ -182,7 +185,7 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
         Intent intent = new Intent(this, ViewRecipeActivity.class);
         intent.putExtra("recipe", recipe);
 
-        ActivityTransition.startActivityForResultWithSharedElement(
+        startActivityForResultWithSharedElement(
                 this, intent, pairs[0].first, pairs[0].second, REQUEST_VIEW_RECIPE);
     }
 
@@ -197,7 +200,23 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
 
     @Override
     public void onDeleteRecipe(long recipeId) {
-//        databaseAdapter.deleteRecipe(recipeId);
+        databaseAdapter.deleteRecipe(recipeId);
         Snackbar.make(getWindow().getDecorView(), "Recipe deleted.", Snackbar.LENGTH_LONG).show();
+    }
+
+    public static void startActivityForResultWithSharedElement(Context context,
+                                                               Intent intent,
+                                                               View sharedView,
+                                                               String transitionName,
+                                                               int requestCode) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+            ((Activity) context).startActivityForResult(intent, requestCode);
+        else {
+            ActivityOptions transitionActivityOptions =
+                    ActivityOptions.makeSceneTransitionAnimation(
+                            (Activity) context, sharedView, transitionName);
+            ((Activity) context).startActivityForResult(
+                    intent, requestCode, transitionActivityOptions.toBundle());
+        }
     }
 }

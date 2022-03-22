@@ -19,7 +19,7 @@ public class DatabaseAdapter {
 
     private SQLiteDbCRUD dbCRUD;
     private SQLiteDatabase db;
-    private Context myContext;
+    private Context mContext;
 
 //    private UserDAO userDAO;
     private RecipeDAO recipeDAO;
@@ -41,7 +41,7 @@ public class DatabaseAdapter {
     }
 
     private DatabaseAdapter(Context context) {
-        myContext = context;
+        mContext = context;
         dbCRUD = new SQLiteDbCRUD(context, DATABASE_NAME, DATABASE_VERSION);
     }
 
@@ -54,7 +54,7 @@ public class DatabaseAdapter {
 
 //    public boolean signIn(String email, String password) {
 //        User currentUser = userDAO.getUserByEmailAndPassword(email, password);
-//        UserPreferences.saveCurrentUser(myContext, currentUser);
+//        UserPreferences.saveCurrentUser(mContext, currentUser);
 //        return currentUser != null;
 //    }
 

@@ -59,7 +59,7 @@
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/vn_botloc" />
+                    android:src="@drawable/chn_dumpling" />
             </ViewSwitcher>
 
             <androidx.appcompat.widget.Toolbar

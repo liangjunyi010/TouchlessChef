@@ -5,11 +5,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import app.touchlessChef.CuisineValues;
+import app.touchlessChef.fragment.home.ChineseFragment;
 import app.touchlessChef.fragment.home.VietnamFragment;
 
 public class MainPagerAdapter extends FragmentStatePagerAdapter {
-    private static final int TAB_COUNT = 1;
-    private String[] tabTitles = {"Vietnam"};
+    private static final int TAB_COUNT = CuisineValues.TOTAL;
 
     public MainPagerAdapter(@NonNull FragmentManager fm) {
         super(fm);
@@ -21,11 +22,11 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
         Fragment frag = null;
         switch (position) {
             case 0:
-                frag = VietnamFragment.newInstance(tabTitles[position]);
+                frag = VietnamFragment.newInstance(CuisineValues.VIETNAMESE);
                 break;
-//            case 1:
-//                frag = VietnamFragment.newInstance(tabTitles[position]);
-//                break;
+            case 1:
+                frag = ChineseFragment.newInstance(CuisineValues.CHINESE);
+                break;
         }
         return frag;
     }
@@ -42,6 +43,15 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return tabTitles[position];
+        String title = null;
+        switch (position) {
+            case 0:
+                title = CuisineValues.VIETNAMESE;
+                break;
+            case 1:
+                title = CuisineValues.CHINESE;
+                break;
+        }
+        return title;
     }
 }

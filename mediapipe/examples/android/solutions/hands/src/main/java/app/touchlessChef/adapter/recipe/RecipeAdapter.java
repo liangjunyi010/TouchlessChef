@@ -28,11 +28,11 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
     }
 
     private List<Recipe> recipeList;
-    private Context myContext;
+    private Context mContext;
     private RecipeListener recipeListener;
 
-    public RecipeAdapter(Context myContext, List<Recipe> recipeList) {
-        this.myContext = myContext;
+    public RecipeAdapter(Context mContext, List<Recipe> recipeList) {
+        this.mContext = mContext;
         this.recipeList = recipeList;
     }
 

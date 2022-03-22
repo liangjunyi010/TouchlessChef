@@ -23,18 +23,17 @@ import app.touchlessChef.adapter.pager.ViewPagerAdapter;
 import app.touchlessChef.model.Recipe;
 import app.touchlessChef.R;
 import app.touchlessChef.activity.standard.home.MenuActivity;
-import app.touchlessChef.utils.RecipeValues;
+import app.touchlessChef.RecipeValues;
 
 public class ViewRecipeActivity extends MenuActivity {
-    private ViewPagerAdapter myAdapter;
+    private ViewPagerAdapter mAdapter;
     private Recipe currentRecipe;
-    private DatabaseAdapter databaseAdapter;
 
-    private ImageView myRecipeImage;
-    private TextView myRecipeDescription;
-    private ViewPager myViewPager;
-    private TabLayout myTabLayout;
-    private CollapsingToolbarLayout myCollapsingToolbarLayout;
+    private ImageView mRecipeImage;
+    private TextView mRecipeDescription;
+    private ViewPager mViewPager;
+    private TabLayout mTabLayout;
+    private CollapsingToolbarLayout mCollapsingToolbarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,28 +45,28 @@ public class ViewRecipeActivity extends MenuActivity {
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         currentRecipe = getIntent().getParcelableExtra("recipe");
-        databaseAdapter = DatabaseAdapter.getInstance(this);
+        DatabaseAdapter databaseAdapter = DatabaseAdapter.getInstance(this);
         findViewsById();
 
-        setSupportActionBar(myToolbar);
+        setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(currentRecipe.getName());
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        myRecipeImage.setImageURI(Uri.fromFile(new File(currentRecipe.getImagePath())));
-        myRecipeDescription.setText(currentRecipe.getDescription());
+        mRecipeImage.setImageURI(Uri.fromFile(new File(currentRecipe.getImagePath())));
+        mRecipeDescription.setText(currentRecipe.getDescription());
 
-        myTabLayout.bringToFront();
-        myAdapter = new ViewPagerAdapter(getSupportFragmentManager(), currentRecipe);
+        mTabLayout.bringToFront();
+        mAdapter = new ViewPagerAdapter(getSupportFragmentManager(), currentRecipe);
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
-        myCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
-        myCollapsingToolbarLayout.setExpandedTitleTypeface(font);
+        mCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
+        mCollapsingToolbarLayout.setExpandedTitleTypeface(font);
 
-        myViewPager.setAdapter(myAdapter);
-        myTabLayout.setupWithViewPager(myViewPager);
-        myViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(myTabLayout));
-        myTabLayout.setTabsFromPagerAdapter(myAdapter);
+        mViewPager.setAdapter(mAdapter);
+        mTabLayout.setupWithViewPager(mViewPager);
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+        mTabLayout.setTabsFromPagerAdapter(mAdapter);
     }
 
     @Override
@@ -100,11 +99,11 @@ public class ViewRecipeActivity extends MenuActivity {
     }
 
     private void findViewsById() {
-        myRecipeImage = findViewById(R.id.recipe_image);
-        myRecipeDescription = findViewById(R.id.recipe_description);
-        myToolbar = findViewById(R.id.toolbar);
-        myViewPager = findViewById(R.id.viewpager);
-        myTabLayout = findViewById(R.id.tablayout);
-        myCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
+        mRecipeImage = findViewById(R.id.recipe_image);
+        mRecipeDescription = findViewById(R.id.recipe_description);
+        mToolbar = findViewById(R.id.toolbar);
+        mViewPager = findViewById(R.id.viewpager);
+        mTabLayout = findViewById(R.id.tablayout);
+        mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
     }
 }

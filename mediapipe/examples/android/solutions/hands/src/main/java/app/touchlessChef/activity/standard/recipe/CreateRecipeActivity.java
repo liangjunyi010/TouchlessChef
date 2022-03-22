@@ -10,10 +10,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,8 +35,7 @@ import app.touchlessChef.fragment.recipe.NavigableFragment;
 import app.touchlessChef.fragment.recipe.RecipeImageFragment;
 import app.touchlessChef.fragment.recipe.RecipeIngredientFragment;
 import app.touchlessChef.fragment.recipe.RecipeInstructionFragment;
-import app.touchlessChef.utils.Files;
-import app.touchlessChef.utils.RecipeValues;
+import app.touchlessChef.RecipeValues;
 
 public class CreateRecipeActivity extends AppCompatActivity implements
         RecipeImageFragment.ImageListener, RecipeInstructionFragment.InstructionListener,
@@ -47,7 +50,8 @@ public class CreateRecipeActivity extends AppCompatActivity implements
     private DatabaseAdapter databaseAdapter;
 
     private Button nextButton;
-    private Toolbar myToolbar;
+    private Toolbar mToolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,8 +166,8 @@ public class CreateRecipeActivity extends AppCompatActivity implements
     }
 
     private void initializeUI() {
-        myToolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(myToolbar);
+        mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -213,5 +217,26 @@ public class CreateRecipeActivity extends AppCompatActivity implements
         Intent gallery = new Intent(Intent.ACTION_GET_CONTENT);
         gallery.setType("image/*");
         startActivityForResult(gallery, REQUEST_OPEN_GALLERY);
+    }
+
+    public static class Files {
+        public static String getRealPathFromURI(Context context, Uri contentURI) {
+                String filePath = "";
+                String wholeID = DocumentsContract.getDocumentId(contentURI);
+                String id = wholeID.split(":")[1];
+                String[] column = {MediaStore.Images.Media.DATA};
+                String sel = MediaStore.Images.Media._ID + "=?";
+
+                Cursor cursor = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        column, sel, new String[]{id}, null);
+
+                int columnIndex = cursor.getColumnIndex(column[0]);
+
+                if (cursor.moveToFirst()) {
+                    filePath = cursor.getString(columnIndex);
+                }
+                cursor.close();
+                return filePath;
+        }
     }
 }
