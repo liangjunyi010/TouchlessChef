@@ -16,11 +16,17 @@ import android.widget.ImageView;
 import android.widget.ViewSwitcher;
 
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
+
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
 
@@ -28,6 +34,8 @@ import app.touchlessChef.R;
 import app.touchlessChef.activity.standard.MenuActivity;
 import app.touchlessChef.adapter.DatabaseAdapter;
 import app.touchlessChef.adapter.pager.HomePagerAdapter;
+import app.touchlessChef.fragment.home.ChineseFragment;
+import app.touchlessChef.fragment.home.VietnamFragment;
 import app.touchlessChef.model.Recipe;
 import app.touchlessChef.fragment.home.BaseFragment;
 import app.touchlessChef.activity.standard.recipe.CreateRecipeActivity;
@@ -44,11 +52,13 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
     private ImageView firstView;
     private ImageView secondView;
     private ViewSwitcher mViewSwitcher;
+    private DrawerLayout drawer;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_standard_home_main);
+
 
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
@@ -77,6 +87,43 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
         myTabLayout.setupWithViewPager(mViewPager);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(myTabLayout));
         myTabLayout.setTabsFromPagerAdapter(mAdapter);
+
+        drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.first_item:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.switcher,
+                                new ChineseFragment()).commit();
+                        break;
+                    case R.id.second_item:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.switcher,
+                                new VietnamFragment()).commit();
+                        break;
+                    case R.id.third_item:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.switcher,
+                                new ChineseFragment()).commit();
+                        break;
+
+                }
+
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, mToolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.switcher,
+                    new ChineseFragment()).commit();
+            navigationView.setCheckedItem(R.id.first_item);
+        }
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -109,6 +156,15 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
@@ -216,3 +272,4 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
                 intent, requestCode, transitionActivityOptions.toBundle());
     }
 }
+

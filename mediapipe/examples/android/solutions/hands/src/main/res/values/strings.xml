@@ -25,4 +25,8 @@
     <string name="recipe_no_ingredients">This recipe has no ingredients.</string>
     <string name="recipe_no_instructions">This recipe has no instructions.</string>
     <string name="recipe_update_image">Update recipe image</string>
+    <string name="chinese_link">Chinese</string>
+    <string name="vietnamese_link">Vietnamese</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

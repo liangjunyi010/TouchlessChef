@@ -1,3 +1,5 @@
+.DS_Store
+.DS_Store?
 bazel-*
 .bazel*
 mediapipe/MediaPipe.xcodeproj
