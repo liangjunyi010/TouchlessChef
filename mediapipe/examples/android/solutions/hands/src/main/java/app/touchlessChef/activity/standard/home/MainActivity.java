@@ -22,7 +22,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 
-
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -83,10 +82,10 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
         myCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
         myCollapsingToolbarLayout.setExpandedTitleTypeface(font);
 
-        mViewPager.setAdapter(mAdapter);
-        myTabLayout.setupWithViewPager(mViewPager);
-        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(myTabLayout));
-        myTabLayout.setTabsFromPagerAdapter(mAdapter);
+//        mViewPager.setAdapter(mAdapter);
+//        myTabLayout.setupWithViewPager(mViewPager);
+//        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(myTabLayout));
+//        myTabLayout.setTabsFromPagerAdapter(mAdapter);
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -95,6 +94,8 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.first_item:
+                        System.out.println("HEKHELEHL");
+                        // something wrong with this code below
                         getSupportFragmentManager().beginTransaction().replace(R.id.switcher,
                                 new ChineseFragment()).commit();
                         break;
@@ -114,16 +115,45 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
             }
         });
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, mToolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+//        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//            }
+//            @Override
+//            public void onPageSelected(int position) {
+//                @DrawableRes int image = -1;
+//                switch (position) {
+//                    case 0:
+//                        image = R.drawable.vn_botloc;
+//                        break;
+//                    case 1:
+//                        image = R.drawable.chn_dumpling;
+//                        break;
+//                }
+//                if (firstView.getVisibility() == View.VISIBLE) {
+//                    secondView.setImageResource(image);
+//                    mViewSwitcher.showNext();
+//                } else {
+//                    firstView.setImageResource(image);
+//                    mViewSwitcher.showPrevious();
+//                }
+//            }
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//            }
+//        });
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.switcher,
-                    new ChineseFragment()).commit();
-            navigationView.setCheckedItem(R.id.first_item);
-        }
+        // to change the toolbar with a new toolbar nested inside drawer layout
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, mToolbar,
+//                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
+//
+//        if (savedInstanceState == null) {
+//            getSupportFragmentManager().beginTransaction().replace(R.id.switcher,
+//                    new ChineseFragment()).commit();
+//            navigationView.setCheckedItem(R.id.first_item);
+//        }
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
