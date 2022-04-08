@@ -71,12 +71,10 @@ public abstract class BaseFragment extends Fragment {
         Bundle args = getArguments();
         assert args != null;
         currentCategory = args.getString("category");
-
         recipeRecyclerView = rootView.findViewById(R.id.recyclerView);
         emptyView = rootView.findViewById(R.id.empty_view);
         recipeRecyclerView.setHasFixedSize(true);
         recipeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
         return rootView;
     }
 

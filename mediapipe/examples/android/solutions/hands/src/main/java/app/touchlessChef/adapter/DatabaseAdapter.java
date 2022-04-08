@@ -20,7 +20,6 @@ public class DatabaseAdapter {
     private static final int DATABASE_VERSION = 1;
 
     private final SQLiteDbCRUD dbCRUD;
-//    private UserDAO userDAO;
     private RecipeDAO recipeDAO;
 
     /**
@@ -44,20 +43,9 @@ public class DatabaseAdapter {
 
     private DatabaseAdapter open() {
         SQLiteDatabase db = dbCRUD.getWritableDatabase();
-//        userDAO = new UserDAO(db);
         recipeDAO = new RecipeDAO(db);
         return this;
     }
-
-//    public boolean signIn(String email, String password) {
-//        User currentUser = userDAO.getUserByEmailAndPassword(email, password);
-//        UserPreferences.saveCurrentUser(mContext, currentUser);
-//        return currentUser != null;
-//    }
-
-//    public void addNewUser(User user) {
-//        userDAO.insert(user);
-//    }
 
     public void addNewRecipe(Recipe recipe) {
         recipeDAO.insert(recipe);

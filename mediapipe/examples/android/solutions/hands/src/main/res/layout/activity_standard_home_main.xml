@@ -90,21 +90,22 @@
             android:fillViewport="true"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewpager"
+            <LinearLayout
+                android:id="@+id/fragment_holder"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+            </LinearLayout>
+
 
         </androidx.core.widget.NestedScrollView>
-
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            app:headerLayout="@layout/nav_header"
-            app:menu="@menu/nav_items" />
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_items" />
 </androidx.drawerlayout.widget.DrawerLayout>

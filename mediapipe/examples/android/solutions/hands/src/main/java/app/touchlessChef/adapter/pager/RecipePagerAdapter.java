@@ -11,7 +11,7 @@ import app.touchlessChef.fragment.view.ViewIngredientsFragment;
 import app.touchlessChef.fragment.view.ViewInstructionsFragment;
 
 public class RecipePagerAdapter extends FragmentStatePagerAdapter {
-    private static final int TAB_COUNT = RecipeConstants.RECIPE_PAGER_COUNT;
+    private static final int TAB_COUNT = 2;
     private final Recipe recipe;
 
 

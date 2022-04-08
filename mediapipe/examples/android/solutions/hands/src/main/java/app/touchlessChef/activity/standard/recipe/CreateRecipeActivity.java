@@ -46,7 +46,7 @@ public class CreateRecipeActivity extends AppCompatActivity implements
     private static final int REQUEST_TO_ACCESS_GALLERY = 11;
 
     private Recipe currentRecipe;
-    private boolean isUpdating;
+    private boolean isEditing;
     private DatabaseAdapter databaseAdapter;
 
     private Button nextButton;
@@ -59,8 +59,8 @@ public class CreateRecipeActivity extends AppCompatActivity implements
         databaseAdapter = DatabaseAdapter.getInstance(this);
 
         Intent intent = getIntent();
-        isUpdating = intent.getBooleanExtra("isUpdating", false);
-        if (isUpdating)
+        isEditing = intent.getBooleanExtra("isEditing", false);
+        if (isEditing)
             currentRecipe = intent.getParcelableExtra("recipe");
         else {
             String currentCategory = intent.getStringExtra("category");
@@ -194,13 +194,13 @@ public class CreateRecipeActivity extends AppCompatActivity implements
     @Override
     public void onStepsFinished(List<Instruction> directions) {
         currentRecipe.setInstructions(directions);
-        if (isUpdating)
+        if (isEditing)
             databaseAdapter.updateRecipe(currentRecipe);
         else
             databaseAdapter.addNewRecipe(currentRecipe);
 
         Log.i("CreateRecipeActivity", "Final recipe: " + currentRecipe);
-        setResult(isUpdating ? RecipeEditConstants.RECIPE_EDITED : RecipeEditConstants.RECIPE_ADDED);
+        setResult(isEditing ? RecipeEditConstants.RECIPE_EDITED : RecipeEditConstants.RECIPE_ADDED);
         finish();
     }
 

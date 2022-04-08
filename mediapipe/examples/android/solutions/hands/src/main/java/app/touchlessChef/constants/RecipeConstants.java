@@ -1,7 +1,6 @@
 package app.touchlessChef.constants;
 
 public class RecipeConstants {
-    public static final int RECIPE_PAGER_COUNT = 2;
     public static final String INGREDIENTS = "Ingredients";
     public static final String INSTRUCTIONS = "Instructions";
 

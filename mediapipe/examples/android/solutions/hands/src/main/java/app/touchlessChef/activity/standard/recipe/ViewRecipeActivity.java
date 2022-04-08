@@ -55,16 +55,16 @@ public class ViewRecipeActivity extends MenuActivity {
         mRecipeDescription.setText(currentRecipe.getDescription());
 
         mTabLayout.bringToFront();
-        RecipePagerAdapter mAdapter = new RecipePagerAdapter(getSupportFragmentManager(), currentRecipe);
+//        RecipePagerAdapter mAdapter = new RecipePagerAdapter(getSupportFragmentManager(), currentRecipe);
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
         mCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
         mCollapsingToolbarLayout.setExpandedTitleTypeface(font);
 
-        mViewPager.setAdapter(mAdapter);
-        mTabLayout.setupWithViewPager(mViewPager);
-        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-        mTabLayout.setTabsFromPagerAdapter(mAdapter);
+//        mViewPager.setAdapter(mAdapter);
+//        mTabLayout.setupWithViewPager(mViewPager);
+//        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+//        mTabLayout.setTabsFromPagerAdapter(mAdapter);
     }
 
     @Override

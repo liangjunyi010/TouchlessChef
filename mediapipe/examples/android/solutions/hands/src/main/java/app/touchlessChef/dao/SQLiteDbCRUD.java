@@ -18,7 +18,6 @@ public class SQLiteDbCRUD extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-//        db.execSQL(UserDAO.Config.CREATE_TABLE_STATEMENT);
         db.execSQL(RecipeDAO.Config.CREATE_TABLE_STATEMENT);
         db.execSQL(InstructionDAO.Config.CREATE_TABLE_STATEMENT);
         db.execSQL(IngredientDAO.Config.CREATE_TABLE_STATEMENT);
@@ -28,7 +27,6 @@ public class SQLiteDbCRUD extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.w(TAG, "Upgrading database from version " + oldVersion +
                 " to " + newVersion + ", which will destroy all old data.");
-//        db.execSQL("DROP TABLE IF EXISTS " + UserDAO.Config.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + InstructionDAO.Config.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + IngredientDAO.Config.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + RecipeDAO.Config.TABLE_NAME);
