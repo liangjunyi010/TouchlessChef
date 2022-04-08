@@ -1,6 +1,6 @@
 package app.touchlessChef.fragment.recipe;
 
-import android.app.Activity;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -76,12 +76,12 @@ public class RecipeImageFragment extends NavigableFragment {
     }
 
     @Override
-    public void onAttach(@NonNull Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
         try {
-            mListener = (ImageListener) activity;
+            mListener = (ImageListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity
+            throw new ClassCastException(context
                     + " must implement ImageListener");
         }
     }

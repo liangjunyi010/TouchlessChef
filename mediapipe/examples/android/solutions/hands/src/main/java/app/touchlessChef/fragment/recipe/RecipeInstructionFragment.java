@@ -2,6 +2,7 @@ package app.touchlessChef.fragment.recipe;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -108,12 +109,12 @@ public class RecipeInstructionFragment extends NavigableFragment {
     }
 
     @Override
-    public void onAttach(@NonNull Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
         try {
-            myListener = (InstructionListener) activity;
+            myListener = (InstructionListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity + " must implement InstructionListener");
+            throw new ClassCastException(context + " must implement InstructionListener");
         }
     }
 

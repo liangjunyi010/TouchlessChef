@@ -1,6 +1,6 @@
 package app.touchlessChef.adapter.recipe;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -99,6 +99,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
                 this.recipe = recipe;
             }
 
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {

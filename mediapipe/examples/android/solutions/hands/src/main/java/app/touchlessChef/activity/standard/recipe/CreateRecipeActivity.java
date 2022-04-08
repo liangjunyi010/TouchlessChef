@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -48,6 +49,7 @@ public class CreateRecipeActivity extends AppCompatActivity implements
     private Recipe currentRecipe;
     private boolean isEditing;
     private DatabaseAdapter databaseAdapter;
+    private final Activity mActivity = this;
 
     private Button nextButton;
 
@@ -207,7 +209,7 @@ public class CreateRecipeActivity extends AppCompatActivity implements
     private void openGallery() {
         Intent gallery = new Intent(Intent.ACTION_GET_CONTENT);
         gallery.setType("image/*");
-        startActivityForResult(gallery, REQUEST_OPEN_GALLERY);
+        mActivity.startActivityForResult(gallery, REQUEST_OPEN_GALLERY);
     }
 
     public static class Files {

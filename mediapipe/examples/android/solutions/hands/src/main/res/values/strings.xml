@@ -19,7 +19,7 @@
     <string name="new_instruction">New Instruction</string>
     <string name="no_instruction">Your recipe has no instructions, yet.</string>
     <string name="next">NEXT</string>
-    <string name="hello_world">Hello World</string>
+    <string name="no_description">No description</string>
     <string name="delete_recipe">Delete recipe</string>
     <string name="edit_recipe">Edit recipe</string>
     <string name="recipe_no_ingredients">This recipe has no ingredients.</string>

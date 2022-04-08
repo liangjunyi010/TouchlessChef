@@ -20,10 +20,8 @@ import androidx.core.view.GravityCompat;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.Objects;
 
 import app.touchlessChef.R;
 import app.touchlessChef.activity.standard.MenuActivity;
@@ -63,14 +61,10 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
 
         mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("touchlessChef");
-
-        TabLayout myTabLayout = findViewById(R.id.tablayout);
         CollapsingToolbarLayout myCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         firstView = findViewById(R.id.firstView);
         secondView = findViewById(R.id.secondView);
         mViewSwitcher = findViewById(R.id.switcher);
-        myTabLayout.bringToFront();
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
         myCollapsingToolbarLayout.setCollapsedTitleTypeface(font);

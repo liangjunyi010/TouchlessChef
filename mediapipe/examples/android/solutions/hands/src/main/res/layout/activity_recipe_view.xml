@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.standard.recipe.ViewRecipeActivity">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tablayout"
-        style="@style/MyCustomTabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="bottom"
-        app:layout_anchor="@+id/appbar"
-        app:layout_anchorGravity="bottom"
-        app:tabContentStart="50dp"
-        app:tabMode="scrollable" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -30,7 +20,6 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="@android:color/transparent"
-            app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -63,7 +52,6 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
         android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -77,15 +65,16 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="16dp"
-                android:text="@string/hello_world"
+                android:text="@string/no_description"
                 android:textColor="@android:color/black"
                 android:textSize="12sp" />
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewpager"
+            <LinearLayout
+                android:id="@+id/recipe_view_holder"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/recipe_description" />
+                android:orientation="horizontal">
+            </LinearLayout>
 
         </RelativeLayout>
 

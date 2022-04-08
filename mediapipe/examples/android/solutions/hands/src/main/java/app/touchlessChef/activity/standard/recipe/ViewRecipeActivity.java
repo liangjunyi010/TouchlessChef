@@ -1,7 +1,5 @@
 package app.touchlessChef.activity.standard.recipe;
 
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -14,12 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.tabs.TabLayout;
 
 import java.io.File;
 import java.util.Objects;
 
-import app.touchlessChef.adapter.pager.RecipePagerAdapter;
+import app.touchlessChef.fragment.recipe.RecipeViewFragment;
 import app.touchlessChef.model.Recipe;
 import app.touchlessChef.R;
 import app.touchlessChef.activity.standard.MenuActivity;
@@ -30,8 +27,6 @@ public class ViewRecipeActivity extends MenuActivity {
 
     private ImageView mRecipeImage;
     private TextView mRecipeDescription;
-    private ViewPager mViewPager;
-    private TabLayout mTabLayout;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
 
     @Override
@@ -54,17 +49,13 @@ public class ViewRecipeActivity extends MenuActivity {
         mRecipeImage.setImageURI(Uri.fromFile(new File(currentRecipe.getImagePath())));
         mRecipeDescription.setText(currentRecipe.getDescription());
 
-        mTabLayout.bringToFront();
-//        RecipePagerAdapter mAdapter = new RecipePagerAdapter(getSupportFragmentManager(), currentRecipe);
-
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
         mCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
         mCollapsingToolbarLayout.setExpandedTitleTypeface(font);
 
-//        mViewPager.setAdapter(mAdapter);
-//        mTabLayout.setupWithViewPager(mViewPager);
-//        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
-//        mTabLayout.setTabsFromPagerAdapter(mAdapter);
+        getSupportFragmentManager().beginTransaction().replace(R.id.recipe_view_holder,
+                RecipeViewFragment.newInstance(currentRecipe.getIngredients(),
+                        currentRecipe.getInstructions())).commit();
     }
 
     @Override
@@ -100,8 +91,6 @@ public class ViewRecipeActivity extends MenuActivity {
         mRecipeImage = findViewById(R.id.recipe_image);
         mRecipeDescription = findViewById(R.id.recipe_description);
         mToolbar = findViewById(R.id.toolbar);
-        mViewPager = findViewById(R.id.viewpager);
-        mTabLayout = findViewById(R.id.tablayout);
         mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
     }
 }
