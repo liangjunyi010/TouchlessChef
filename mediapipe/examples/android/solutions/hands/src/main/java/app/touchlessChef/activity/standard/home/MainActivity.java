@@ -14,9 +14,11 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ViewSwitcher;
 
+
 import androidx.annotation.DrawableRes;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.core.view.GravityCompat;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.snackbar.Snackbar;
@@ -71,6 +73,10 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
         myCollapsingToolbarLayout.setExpandedTitleTypeface(font);
 
         drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(item -> {
             @DrawableRes int image = -1;
