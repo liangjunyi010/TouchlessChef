@@ -29,7 +29,8 @@ public class RecipeDAO {
         if (recipe.getIngredients() == null || recipe.getInstructions() == null)
             throw new IllegalStateException("Cannot insert recipe: the recipe is incomplete.");
 
-        long newRecipeId = insert(recipe.getName(), recipe.getCategory(), recipe.getDescription(), recipe.getImagePath(), recipe.getTime(), recipe.getMealType());
+        long newRecipeId = insert(recipe.getName(), recipe.getCategory(), recipe.getDescription(),
+                recipe.getImagePath(), recipe.getTime(), recipe.getMealType());
         Log.i("DAO", "Inserted new recipe : " + newRecipeId);
         Log.i("DAO", "New recipe has " + recipe.getInstructions().size() + " instructions.");
         for (Ingredient ingredient : recipe.getIngredients()) {
@@ -44,7 +45,8 @@ public class RecipeDAO {
         }
     }
 
-    private long insert(String name, String category, String description, String imagePath, String time, String mealType) {
+    private long insert(String name, String category, String description, String imagePath,
+                        String time, String mealType) {
         ContentValues values = new ContentValues();
         values.put(Config.KEY_NAME, name);
         values.put(Config.KEY_CATEGORY, category);
@@ -58,8 +60,11 @@ public class RecipeDAO {
     public List<Recipe> selectAllByCategory(String category) {
         List<Recipe> recipes = new ArrayList<>();
         try (Cursor cursor = db.query(Config.TABLE_NAME,
-                new String[]{Config.KEY_ID, Config.KEY_NAME, Config.KEY_CATEGORY, Config.KEY_DESCRIPTION, Config.KEY_IMAGE_PATH, Config.KEY_TIME, Config.KEY_MEAL_TYPE},
-                Config.KEY_CATEGORY + " = ?", new String[]{category}, null, null, null)) {
+                new String[]{Config.KEY_ID, Config.KEY_NAME, Config.KEY_CATEGORY,
+                        Config.KEY_DESCRIPTION, Config.KEY_IMAGE_PATH,
+                        Config.KEY_TIME, Config.KEY_MEAL_TYPE},
+                Config.KEY_CATEGORY + " = ?", new String[]{category},
+                null, null, null)) {
             if (cursor.moveToFirst()) {
                 do {
                     Recipe recipe = new Recipe(

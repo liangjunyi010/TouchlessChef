@@ -29,7 +29,8 @@ public class Recipe implements Parcelable {
         this.category = category;
     }
 
-    public Recipe(String name, String category, String description, String imagePath, String time, String mealType) {
+    public Recipe(String name, String category, String description, String imagePath, String time,
+                  String mealType) {
         this(category);
         this.name = name;
         this.description = description;
@@ -38,13 +39,15 @@ public class Recipe implements Parcelable {
         this.mealType = mealType;
     }
 
-    public Recipe(long id, String name, String category, String description, String imagePath, String time, String mealType) {
+    public Recipe(long id, String name, String category, String description, String imagePath,
+                  String time, String mealType) {
         this(name, category, description, imagePath, time, mealType);
         this.id = id;
     }
 
     public Recipe(String name, String category, String description,
-                  List<Ingredient> ingredients, List<Instruction> instructions, String imagePath, String mealType, String time) {
+                  List<Ingredient> ingredients, List<Instruction> instructions, String imagePath,
+                  String mealType, String time) {
         this(name, category, description, imagePath, time, mealType);
         this.ingredients = ingredients;
         this.instructions = instructions;
@@ -53,7 +56,8 @@ public class Recipe implements Parcelable {
     }
 
     public Recipe(long id, String name, String category, String description,
-                  List<Ingredient> ingredients, List<Instruction> instructions, String imagePath, String mealType, String time) {
+                  List<Ingredient> ingredients, List<Instruction> instructions, String imagePath,
+                  String mealType, String time) {
         this(name, category, description, ingredients, instructions, imagePath, mealType, time);
         this.id = id;
     }

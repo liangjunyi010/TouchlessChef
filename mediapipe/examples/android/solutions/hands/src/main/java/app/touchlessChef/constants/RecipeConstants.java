@@ -3,28 +3,19 @@ package app.touchlessChef.constants;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.touchlessChef.R;
 import app.touchlessChef.model.Ingredient;
 import app.touchlessChef.model.Instruction;
 import app.touchlessChef.model.Recipe;
 
 public class RecipeConstants {
-    public static final int RECIPE_PAGER_COUNT = 2;
-    public static final String INGREDIENTS = "Ingredients";
-    public static final String INSTRUCTIONS = "Instructions";
-
-    public static final int CUISINE_COUNT = 2;
     public static final String VIETNAMESE = "Vietnamese";
     public static final String CHINESE = "Chinese";
 
     public static final Recipe VIETNAM_DEFAULT_RECIPE = loadVNDefault();
-
+    public static final int DEFAULT_IMAGE = R.drawable.vn_botloc;
 
     private static Recipe loadVNDefault() {
-        String imagePath = "res/drawable/vn_botloc.png";
-//        String imagePath = getURLForResource(R.drawable.vn_botloc);
-//        String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-//        File file = new File(extStorageDirectory, "vn_botloc.png");
-
         List<Ingredient> ingredients = new ArrayList<>();
         ingredients.add(new Ingredient("1 Pound thinly sliced Chicken Breasts, or boneless chicken thighs"));
         ingredients.add(new Ingredient("1 Tablespoon Olive Oil"));
@@ -46,6 +37,6 @@ public class RecipeConstants {
         instructions.add(new Instruction("instruction6"));
 
         return new Recipe("vn recipe", "Vietnamese",
-                "description", ingredients, instructions, imagePath,
+                "description", ingredients, instructions, "default",
                 "Proper Meal", "30 mins");
     }}

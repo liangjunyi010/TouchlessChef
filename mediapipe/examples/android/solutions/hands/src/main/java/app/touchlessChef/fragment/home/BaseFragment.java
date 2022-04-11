@@ -30,7 +30,6 @@ import app.touchlessChef.R;
 public abstract class BaseFragment extends Fragment {
     public interface FragmentListener {
         void onShowRecipe(Recipe recipe, Pair<View, String>[] pairs);
-        void onEditRecipe(Recipe recipe);
         void onDeleteRecipe(long recipeId);
     }
 
@@ -43,7 +42,6 @@ public abstract class BaseFragment extends Fragment {
     protected List<Recipe> recipes;
 
     public BaseFragment() {
-        // Required empty public constructor
         recipes = new ArrayList<>();
         databaseAdapter = DatabaseAdapter.getInstance(getActivity());
     }
@@ -104,23 +102,8 @@ public abstract class BaseFragment extends Fragment {
         recipes = databaseAdapter.getAllRecipesByCategory(currentCategory);
         toggleEmptyView();
         recipeAdapter = new RecipeAdapter(recipes);
-        recipeAdapter.setRecipeListener(new RecipeAdapter.RecipeListener() {
-            @Override
-            public void onShowRecipe(Recipe recipe, Pair<View, String>[] pairs) {
-                fragmentListener.onShowRecipe(recipe, pairs);
-            }
-
-            @Override
-            public void onEditRecipe(Recipe recipe) {
-                fragmentListener.onEditRecipe(recipe);
-            }
-
-            @Override
-            public void onDeleteRecipe(long recipeId) {
-                fragmentListener.onDeleteRecipe(recipeId);
-                refresh();
-            }
-        });
+        recipeAdapter.setRecipeListener((recipe, pairs) ->
+                fragmentListener.onShowRecipe(recipe, pairs));
         recipeRecyclerView.setAdapter(recipeAdapter);
     }
 
