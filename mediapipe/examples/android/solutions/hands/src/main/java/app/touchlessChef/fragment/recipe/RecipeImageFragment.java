@@ -34,6 +34,8 @@ public class RecipeImageFragment extends NavigableFragment {
     private Button selectImageBtn;
     private EditText recipeName;
     private EditText recipeDescription;
+    private EditText recipeTime;
+    private EditText recipeType;
 
     public static RecipeImageFragment newInstance(Recipe recipe) {
         RecipeImageFragment fragment = new RecipeImageFragment();
@@ -43,6 +45,8 @@ public class RecipeImageFragment extends NavigableFragment {
             args.putString("imagePath", recipe.getImagePath());
             args.putString("description", recipe.getDescription());
             args.putString("name", recipe.getName());
+            args.putString("time", recipe.getTime());
+            args.putString("mealType", recipe.getMealType());
             fragment.setArguments(args);
         }
         return fragment;
@@ -56,15 +60,22 @@ public class RecipeImageFragment extends NavigableFragment {
         selectImageBtn = view.findViewById(R.id.choose_image);
         recipeDescription = view.findViewById(R.id.recipe_description);
         recipeName = view.findViewById(R.id.recipe_name);
+        recipeTime = view.findViewById(R.id.time);
+        recipeType = view.findViewById(R.id.mealType);
+
 
         Bundle args = getArguments();
         if (args != null) {
             String imagePath = args.getString("imagePath");
             String description = args.getString("description");
             String name = args.getString("name");
+            String time = args.getString("time");
+            String mealType = args.getString("mealType");
             onImageSelected(imagePath);
             recipeDescription.setText(description);
             recipeName.setText(name);
+            recipeTime.setText(time);
+            recipeType.setText(mealType);
         }
 
         selectImageBtn.setOnClickListener(v -> {
@@ -102,6 +113,8 @@ public class RecipeImageFragment extends NavigableFragment {
 
         String name = recipeName.getText().toString();
         String description = recipeDescription.getText().toString();
+        String time = recipeTime.getText().toString();
+        String mealType = recipeType.getText().toString();
 
         if (name.isEmpty()) {
             Toast.makeText(getActivity(), "Please specify a name for this recipe.",
@@ -122,7 +135,7 @@ public class RecipeImageFragment extends NavigableFragment {
         }
 
         if (mListener != null)
-            mListener.navigateToIngredientsFragment(name, description);
+            mListener.navigateToIngredientsFragment(name, description, time, mealType);
     }
 
     public void onImageSelected(String imagePath) {
@@ -134,6 +147,6 @@ public class RecipeImageFragment extends NavigableFragment {
     }
     public interface ImageListener {
         void onSelectImage();
-        void navigateToIngredientsFragment(String name, String description);
+        void navigateToIngredientsFragment(String name, String description, String time, String mealType);
     }
 }

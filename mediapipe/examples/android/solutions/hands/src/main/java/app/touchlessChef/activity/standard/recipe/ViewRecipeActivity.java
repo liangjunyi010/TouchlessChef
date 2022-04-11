@@ -27,6 +27,8 @@ public class ViewRecipeActivity extends MenuActivity {
 
     private ImageView mRecipeImage;
     private TextView mRecipeDescription;
+    private TextView mRecipeTime;
+    private TextView mRecipeType;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
 
     @Override
@@ -48,6 +50,8 @@ public class ViewRecipeActivity extends MenuActivity {
 
         mRecipeImage.setImageURI(Uri.fromFile(new File(currentRecipe.getImagePath())));
         mRecipeDescription.setText(currentRecipe.getDescription());
+        mRecipeTime.setText(currentRecipe.getTime());
+        mRecipeType.setText(currentRecipe.getMealType());
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
         mCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
@@ -90,6 +94,8 @@ public class ViewRecipeActivity extends MenuActivity {
     private void findViewsById() {
         mRecipeImage = findViewById(R.id.recipe_image);
         mRecipeDescription = findViewById(R.id.recipe_description);
+        mRecipeTime = findViewById(R.id.time);
+        mRecipeType = findViewById(R.id.mealType);
         mToolbar = findViewById(R.id.toolbar);
         mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
     }

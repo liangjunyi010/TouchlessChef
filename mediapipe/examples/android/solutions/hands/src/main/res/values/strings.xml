@@ -31,4 +31,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="chinese">Chinese</string>
     <string name="vietnamese">Vietnamese</string>
+    <string name="what_is_your_meal_type">What is your meal type?</string>
+    <string name="estimate_time_to_finish">Estimate time to finish</string>
 </resources>

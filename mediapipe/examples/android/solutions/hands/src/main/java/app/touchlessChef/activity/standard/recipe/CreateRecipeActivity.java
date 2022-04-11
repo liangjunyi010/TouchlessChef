@@ -168,9 +168,11 @@ public class CreateRecipeActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void navigateToIngredientsFragment(String name, String description) {
+    public void navigateToIngredientsFragment(String name, String description, String time, String MealType) {
         currentRecipe.setName(name);
         currentRecipe.setDescription(description);
+        currentRecipe.setTime(time);
+        currentRecipe.setMealType(MealType);
         displayFragment(1);
     }
 

@@ -37,6 +37,19 @@
             android:inputType="textMultiLine"
             android:layout_height="wrap_content"
             android:hint="@string/a_short_description_about_this_recipe" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mealType"
+            android:inputType="text"
+            android:hint="@string/what_is_your_meal_type"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/time"
+            android:hint="@string/estimate_time_to_finish"/>
     </LinearLayout>
 
 </ScrollView>

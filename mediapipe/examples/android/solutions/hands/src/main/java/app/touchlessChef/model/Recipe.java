@@ -16,6 +16,8 @@ public class Recipe implements Parcelable {
     private List<Ingredient> ingredients;
     private List<Instruction> instructions;
     private String imagePath;
+    private String mealType;
+    private String time;
 
     public Recipe() {
         ingredients = new ArrayList<>();
@@ -27,28 +29,32 @@ public class Recipe implements Parcelable {
         this.category = category;
     }
 
-    public Recipe(String name, String category, String description, String imagePath) {
+    public Recipe(String name, String category, String description, String imagePath, String time, String mealType) {
         this(category);
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;
+        this.time = time;
+        this.mealType = mealType;
     }
 
-    public Recipe(long id, String name, String category, String description, String imagePath) {
-        this(name, category, description, imagePath);
+    public Recipe(long id, String name, String category, String description, String imagePath, String time, String mealType) {
+        this(name, category, description, imagePath, time, mealType);
         this.id = id;
     }
 
     public Recipe(String name, String category, String description,
-                  List<Ingredient> ingredients, List<Instruction> instructions, String imagePath) {
-        this(name, category, description, imagePath);
+                  List<Ingredient> ingredients, List<Instruction> instructions, String imagePath, String mealType, String time) {
+        this(name, category, description, imagePath, time, mealType);
         this.ingredients = ingredients;
         this.instructions = instructions;
+        this.time = time;
+        this.mealType = mealType;
     }
 
     public Recipe(long id, String name, String category, String description,
-                  List<Ingredient> ingredients, List<Instruction> instructions, String imagePath) {
-        this(name, category, description, ingredients, instructions, imagePath);
+                  List<Ingredient> ingredients, List<Instruction> instructions, String imagePath, String mealType, String time) {
+        this(name, category, description, ingredients, instructions, imagePath, mealType, time);
         this.id = id;
     }
 
@@ -63,6 +69,8 @@ public class Recipe implements Parcelable {
         in.readTypedList(ingredients, Ingredient.CREATOR);
         in.readTypedList(instructions, Instruction.CREATOR);
         imagePath = in.readString();
+        time = in.readString();
+        mealType = in.readString();
     }
 
     @Override
@@ -74,6 +82,8 @@ public class Recipe implements Parcelable {
         dest.writeTypedList(ingredients);
         dest.writeTypedList(instructions);
         dest.writeString(imagePath);
+        dest.writeString(time);
+        dest.writeString(mealType);
     }
 
     @Override
@@ -144,6 +154,21 @@ public class Recipe implements Parcelable {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
+    public String getMealType() {
+        return mealType;
+    }
+
+    public void setMealType(String mealType) {
+        this.mealType = mealType;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     @NonNull
     @Override
@@ -156,6 +181,8 @@ public class Recipe implements Parcelable {
                 ", ingredients=" + ingredients +
                 ", instructions=" + instructions +
                 ", imagePath='" + imagePath + '\'' +
+                ", mealType='" + mealType + '\'' +
+                ", time=" + time +
                 '}';
     }
 }

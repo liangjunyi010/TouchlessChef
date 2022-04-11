@@ -60,14 +60,16 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
     public class RecipeViewHolder extends RecyclerView.ViewHolder {
         TextView titleLabel;
         ImageView thumbnail;
-        ImageView overflow;
+        TextView time;
+        TextView mealType;
 
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
 
             titleLabel = itemView.findViewById(R.id.titleLabel);
             thumbnail = itemView.findViewById(R.id.thumbnail);
-            overflow = itemView.findViewById(R.id.overflow);
+            time = itemView.findViewById(R.id.time);
+            mealType = itemView.findViewById(R.id.mealType);
 
             itemView.setOnClickListener(v -> {
                 if (recipeListener != null)
@@ -75,46 +77,13 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
                             Pair.create(thumbnail, "image_shared")
                     });
             });
-            overflow.setOnClickListener(this::showPopupMenu);
         }
 
         public void bind(Recipe recipe) {
             titleLabel.setText(recipe.getName());
             thumbnail.setImageURI(Uri.fromFile(new File(recipe.getImagePath())));
-        }
-
-        private void showPopupMenu(View view) {
-            PopupMenu popup = new PopupMenu(view.getContext(), view);
-            popup.inflate(R.menu.menu_grid_layout);
-            popup.setOnMenuItemClickListener(
-                    new MyMenuItemClickListener(recipeList.get(getAdapterPosition())));
-            popup.show();
-        }
-
-        class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
-
-            private final Recipe recipe;
-
-            public MyMenuItemClickListener(Recipe recipe) {
-                this.recipe = recipe;
-            }
-
-            @SuppressLint("NonConstantResourceId")
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.action_edit_recipe:
-                        if (recipeListener != null)
-                            recipeListener.onEditRecipe(recipe);
-                        break;
-                    case R.id.action_delete_recipe:
-                        if (recipeListener != null)
-                            recipeListener.onDeleteRecipe(recipe.getId());
-                        return true;
-                    default:
-                }
-                return false;
-            }
+//            time.setText(recipe.getTime());
+//            mealType.setText(recipe.getMealType());
         }
 
     }

@@ -29,7 +29,7 @@ public class RecipeDAO {
         if (recipe.getIngredients() == null || recipe.getInstructions() == null)
             throw new IllegalStateException("Cannot insert recipe: the recipe is incomplete.");
 
-        long newRecipeId = insert(recipe.getName(), recipe.getCategory(), recipe.getDescription(), recipe.getImagePath());
+        long newRecipeId = insert(recipe.getName(), recipe.getCategory(), recipe.getDescription(), recipe.getImagePath(), recipe.getTime(), recipe.getMealType());
         Log.i("DAO", "Inserted new recipe : " + newRecipeId);
         Log.i("DAO", "New recipe has " + recipe.getInstructions().size() + " instructions.");
         for (Ingredient ingredient : recipe.getIngredients()) {
@@ -44,19 +44,21 @@ public class RecipeDAO {
         }
     }
 
-    private long insert(String name, String category, String description, String imagePath) {
+    private long insert(String name, String category, String description, String imagePath, String time, String mealType) {
         ContentValues values = new ContentValues();
         values.put(Config.KEY_NAME, name);
         values.put(Config.KEY_CATEGORY, category);
         values.put(Config.KEY_DESCRIPTION, description);
         values.put(Config.KEY_IMAGE_PATH, imagePath);
+        values.put(Config.KEY_TIME, time);
+        values.put(Config.KEY_MEAL_TYPE, mealType);
         return db.insert(Config.TABLE_NAME, null, values);
     }
 
     public List<Recipe> selectAllByCategory(String category) {
         List<Recipe> recipes = new ArrayList<>();
         try (Cursor cursor = db.query(Config.TABLE_NAME,
-                new String[]{Config.KEY_ID, Config.KEY_NAME, Config.KEY_CATEGORY, Config.KEY_DESCRIPTION, Config.KEY_IMAGE_PATH},
+                new String[]{Config.KEY_ID, Config.KEY_NAME, Config.KEY_CATEGORY, Config.KEY_DESCRIPTION, Config.KEY_IMAGE_PATH, Config.KEY_TIME, Config.KEY_MEAL_TYPE},
                 Config.KEY_CATEGORY + " = ?", new String[]{category}, null, null, null)) {
             if (cursor.moveToFirst()) {
                 do {
@@ -65,7 +67,9 @@ public class RecipeDAO {
                             cursor.getString(1),
                             cursor.getString(2),
                             cursor.getString(3),
-                            cursor.getString(4));
+                            cursor.getString(4),
+                            cursor.getString(5),
+                            cursor.getString(6));
                     recipe.setIngredients(ingredientDAO.selectAllByRecipeId(recipe.getId()));
                     recipe.setInstructions(instructionDAO.selectAllByRecipeId(recipe.getId()));
                     recipes.add(recipe);
@@ -95,6 +99,8 @@ public class RecipeDAO {
         values.put(Config.KEY_CATEGORY, recipe.getCategory());
         values.put(Config.KEY_DESCRIPTION, recipe.getDescription());
         values.put(Config.KEY_IMAGE_PATH, recipe.getImagePath());
+        values.put(Config.KEY_TIME, recipe.getTime());
+        values.put(Config.KEY_MEAL_TYPE, recipe.getMealType());
         db.update(Config.TABLE_NAME, values, Config.KEY_ID + "=" + recipe.getId(), null);
     }
 
@@ -111,6 +117,8 @@ public class RecipeDAO {
         public static final String KEY_CATEGORY = "category";
         public static final String KEY_DESCRIPTION = "description";
         public static final String KEY_IMAGE_PATH = "imagePath";
+        public static final String KEY_TIME = "time";
+        public static final String KEY_MEAL_TYPE = "mealType";
 
         public static final String CREATE_TABLE_STATEMENT =
                 "CREATE TABLE " + TABLE_NAME + " (" +
@@ -118,6 +126,8 @@ public class RecipeDAO {
                         KEY_NAME + " TEXT NOT NULL, " +
                         KEY_CATEGORY + " TEXT NOT NULL, " +
                         KEY_DESCRIPTION + " TEXT NOT NULL, " +
-                        KEY_IMAGE_PATH + " TEXT NOT NULL)";
+                        KEY_IMAGE_PATH + " TEXT NOT NULL, " +
+                        KEY_TIME + " TEXT NOT NULL, " +
+                        KEY_MEAL_TYPE + " TEXT NOT NULL)";
     }
 }

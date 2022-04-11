@@ -34,23 +34,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_below="@+id/thumbnail"
-                android:layout_toEndOf="@+id/overflow"
                 android:ellipsize="end"
                 android:padding="16dp"
                 android:textColor="#4c4c4c"
                 android:textSize="16sp"
                 android:transitionName="name_shared"
                 tools:text="@string/recipe_no1" />
-
-            <ImageView
-                android:id="@+id/overflow"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignBottom="@id/titleLabel"
-                android:layout_alignTop="@id/titleLabel"
-                android:layout_below="@id/thumbnail"
-                android:src="@drawable/ic_more_button" />
-
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

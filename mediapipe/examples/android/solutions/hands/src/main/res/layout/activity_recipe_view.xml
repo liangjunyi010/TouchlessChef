@@ -20,6 +20,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="@android:color/transparent"
+            app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -60,6 +61,16 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/mealType"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/time"/>
+
+            <TextView
                 android:id="@+id/recipe_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,6 +86,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
             </LinearLayout>
+
+
 
         </RelativeLayout>
 
