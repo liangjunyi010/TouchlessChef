@@ -8,12 +8,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import app.touchlessChef.R;
 
 public abstract class BaseFragment extends Fragment {
     public interface FragmentListener {
-        void onShowRecipe(Recipe recipe, Pair<View, String>[] pairs);
+        void onShowRecipe(Recipe recipe, Pair<ImageView, String> pairs);
         void onDeleteRecipe(long recipeId);
     }
 
@@ -83,12 +84,12 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(@NonNull Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
         try {
-            fragmentListener = (FragmentListener) activity;
+            fragmentListener = (FragmentListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity + " must implement FragmentListener");
+            throw new ClassCastException(context + " must implement FragmentListener");
         }
     }
 

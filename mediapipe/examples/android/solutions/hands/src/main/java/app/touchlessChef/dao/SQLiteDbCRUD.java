@@ -1,13 +1,12 @@
 package app.touchlessChef.dao;
 
-import static app.touchlessChef.constants.RecipeConstants.VIETNAM_DEFAULT_RECIPE;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import app.touchlessChef.constants.RecipeConstants;
 import app.touchlessChef.dao.recipe.IngredientDAO;
 import app.touchlessChef.dao.recipe.InstructionDAO;
 import app.touchlessChef.dao.recipe.RecipeDAO;
@@ -29,7 +28,7 @@ public class SQLiteDbCRUD extends SQLiteOpenHelper {
         db.execSQL(RecipeDAO.Config.CREATE_TABLE_STATEMENT);
         db.execSQL(InstructionDAO.Config.CREATE_TABLE_STATEMENT);
         db.execSQL(IngredientDAO.Config.CREATE_TABLE_STATEMENT);
-        default_insert_recipe(db, VIETNAM_DEFAULT_RECIPE);
+        default_insert_recipe(db);
     }
 
     @Override
@@ -42,18 +41,19 @@ public class SQLiteDbCRUD extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    private void default_insert_recipe(SQLiteDatabase db, Recipe recipe) {
+    private void default_insert_recipe(SQLiteDatabase db) {
+        Recipe defaultRecipe = RecipeConstants.VIETNAM_DEFAULT_RECIPE;
         ingredientDAO = new IngredientDAO(db);
         instructionDAO = new InstructionDAO(db);
-        long recipeID = default_insert_helper(db, recipe.getName(), recipe.getCategory(),
-                recipe.getDescription(), recipe.getImagePath(),
-                recipe.getTime(), recipe.getMealType());
-        for (Ingredient ingredient : recipe.getIngredients()) {
+        long recipeID = default_insert_helper(db, defaultRecipe.getName(),
+                defaultRecipe.getCategory(), defaultRecipe.getDescription(),
+                defaultRecipe.getImagePath(), defaultRecipe.getTime(), defaultRecipe.getMealType());
+        for (Ingredient ingredient : defaultRecipe.getIngredients()) {
             ingredient.setRecipeId(recipeID);
             ingredientDAO.insert(ingredient);
             Log.i("DAO", "Inserted " + ingredient);
         }
-        for (Instruction instruction : recipe.getInstructions()) {
+        for (Instruction instruction : defaultRecipe.getInstructions()) {
             instruction.setRecipeId(recipeID);
             instructionDAO.insert(instruction);
             Log.i("DAO", "Inserted " + instruction);

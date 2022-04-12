@@ -23,11 +23,6 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
         this.ingredientList = ingredientList;
     }
 
-    public IngredientAdapter(List<Ingredient> ingredientList, boolean isEditable) {
-        this.ingredientList = ingredientList;
-        this.isEditable = isEditable;
-    }
-
     @Override
     public int getItemViewType(int position) {
         return isEditable ? 0 : 1;

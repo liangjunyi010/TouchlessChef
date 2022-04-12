@@ -173,13 +173,13 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
     }
 
     @Override
-    public void onShowRecipe(Recipe recipe, Pair<View, String>[] pairs) {
+    public void onShowRecipe(Recipe recipe, Pair<ImageView, String> pairs) {
         Intent intent = new Intent(this, ViewRecipeActivity.class);
         intent.putExtra("recipe", recipe);
 
         ActivityOptions transitionActivityOptions =
                 ActivityOptions.makeSceneTransitionAnimation(
-                        mActivity, pairs[0].first, pairs[0].second);
+                        mActivity, pairs.first, pairs.second);
         mActivity.startActivityForResult(
                 intent, REQUEST_VIEW_RECIPE, transitionActivityOptions.toBundle());
     }

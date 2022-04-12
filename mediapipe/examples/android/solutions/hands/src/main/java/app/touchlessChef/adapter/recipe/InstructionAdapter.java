@@ -16,7 +16,7 @@ import app.touchlessChef.model.Instruction;
 
 public class InstructionAdapter extends RecyclerView.Adapter<InstructionAdapter.InstructionViewHolder>{
     private final List<Instruction> instructionList;
-    private boolean isEditable = true;
+    private final boolean isEditable = true;
     private InstructionListener instructionListener;
 
     public InstructionAdapter(List<Instruction> instructionList) {

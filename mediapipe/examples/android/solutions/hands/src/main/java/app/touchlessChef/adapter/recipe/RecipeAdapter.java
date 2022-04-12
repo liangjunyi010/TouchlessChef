@@ -1,5 +1,6 @@
 package app.touchlessChef.adapter.recipe;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Pair;
@@ -21,7 +22,7 @@ import app.touchlessChef.model.Recipe;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>{
     public interface RecipeListener {
-        void onShowRecipe(Recipe recipe, Pair<View, String>[] pairs);
+        void onShowRecipe(Recipe recipe, Pair<ImageView, String> pairs);
     }
 
     private final List<Recipe> recipeList;
@@ -67,10 +68,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
             time = itemView.findViewById(R.id.time_textview);
 
             itemView.setOnClickListener(v -> {
+                Pair<ImageView, String> pairs = Pair.create(thumbnail, "image_shared");
                 if (recipeListener != null)
-                    recipeListener.onShowRecipe(recipeList.get(getAdapterPosition()), new Pair[]{
-                            Pair.create(thumbnail, "image_shared")
-                    });
+                    recipeListener.onShowRecipe(recipeList.get(getAdapterPosition()), pairs);
             });
         }
 
@@ -82,7 +82,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
             if (!imgPath.equals("default")) {
                 thumbnail.setImageURI(Uri.fromFile(new File(imgPath)));
             } else {
-                Drawable mDrawable = thumbnail.getResources().getDrawable(RecipeConstants.DEFAULT_IMAGE);
+                @SuppressLint("UseCompatLoadingForDrawables") Drawable mDrawable =
+                        thumbnail.getResources().getDrawable(RecipeConstants.DEFAULT_IMAGE);
                 thumbnail.setImageDrawable(mDrawable);
             }
         }
