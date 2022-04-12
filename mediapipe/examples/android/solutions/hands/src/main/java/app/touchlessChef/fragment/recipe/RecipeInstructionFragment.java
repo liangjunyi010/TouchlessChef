@@ -1,7 +1,6 @@
 package app.touchlessChef.fragment.recipe;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;

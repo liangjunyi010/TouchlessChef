@@ -45,7 +45,8 @@ public class SQLiteDbCRUD extends SQLiteOpenHelper {
     private void default_insert_recipe(SQLiteDatabase db, Recipe recipe) {
         ingredientDAO = new IngredientDAO(db);
         instructionDAO = new InstructionDAO(db);
-        long recipeID = default_insert_helper(db, recipe.getName(), recipe.getCategory(), recipe.getDescription(), recipe.getImagePath(),
+        long recipeID = default_insert_helper(db, recipe.getName(), recipe.getCategory(),
+                recipe.getDescription(), recipe.getImagePath(),
                 recipe.getTime(), recipe.getMealType());
         for (Ingredient ingredient : recipe.getIngredients()) {
             ingredient.setRecipeId(recipeID);
@@ -60,8 +61,9 @@ public class SQLiteDbCRUD extends SQLiteOpenHelper {
 
     }
 
-    private long default_insert_helper(SQLiteDatabase db, String name, String category, String description,
-                                       String imagePath, String time, String mealType){
+    private long default_insert_helper(SQLiteDatabase db, String name, String category,
+                                       String description, String imagePath,
+                                       String time, String mealType){
         ingredientDAO = new IngredientDAO(db);
         instructionDAO = new InstructionDAO(db);
         ContentValues values = new ContentValues();

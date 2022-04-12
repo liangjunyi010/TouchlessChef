@@ -23,10 +23,6 @@ public class InstructionAdapter extends RecyclerView.Adapter<InstructionAdapter.
         this.instructionList = instructionList;
     }
 
-    public InstructionAdapter(List<Instruction> instructionList, boolean isEditable) {
-        this.instructionList = instructionList;
-        this.isEditable = isEditable;
-    }
 
     @Override
     public int getItemViewType(int position) {

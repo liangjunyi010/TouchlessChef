@@ -46,15 +46,24 @@ public class RecipeViewFragment extends Fragment {
             ingredientList = args.getParcelableArrayList("ingredients");
             instructionList = args.getParcelableArrayList("instructions");
         }
+
+        // linking view(tag) to fragment
         TextView recipeView = view.findViewById(R.id.recipe_holder);
 
-        for (Ingredient ingredient: ingredientList){
-            recipeView.append(ingredient.getName());
+        // code to design the format of the fragment
+        for (Ingredient ingredient: ingredientList)
+        {
+            recipeView.append("\n");
+            recipeView.append(ingredientList.indexOf(ingredient) + 1 +  "." + ingredient.getName());
             recipeView.append("\n");
         }
-        for (Instruction instruction: instructionList){
+
+        for(Instruction instruction : instructionList)
+        {
+            recipeView.append("\n");
             recipeView.append(instruction.getContent());
             recipeView.append("\n");
+
         }
 
         return view;

@@ -42,7 +42,6 @@ public abstract class BaseFragment extends Fragment {
     protected List<Recipe> recipes;
 
     public BaseFragment() {
-        // Required empty public constructor
         recipes = new ArrayList<>();
         databaseAdapter = DatabaseAdapter.getInstance(getActivity());
     }
@@ -103,7 +102,8 @@ public abstract class BaseFragment extends Fragment {
         recipes = databaseAdapter.getAllRecipesByCategory(currentCategory);
         toggleEmptyView();
         recipeAdapter = new RecipeAdapter(recipes);
-        recipeAdapter.setRecipeListener((recipe, pairs) -> fragmentListener.onShowRecipe(recipe, pairs));
+        recipeAdapter.setRecipeListener((recipe, pairs) ->
+                fragmentListener.onShowRecipe(recipe, pairs));
         recipeRecyclerView.setAdapter(recipeAdapter);
     }
 

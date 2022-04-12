@@ -1,5 +1,6 @@
 package app.touchlessChef.adapter.recipe;
 
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import java.io.File;
 import java.util.List;
 
 import app.touchlessChef.R;
+import app.touchlessChef.constants.RecipeConstants;
 import app.touchlessChef.model.Recipe;
 
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>{
@@ -56,7 +58,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         TextView titleLabel;
         ImageView thumbnail;
         TextView time;
-//        TextView mealType;
 
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,7 +65,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
             titleLabel = itemView.findViewById(R.id.titleLabel);
             thumbnail = itemView.findViewById(R.id.thumbnail);
             time = itemView.findViewById(R.id.time_textview);
-//            mealType = itemView.findViewById(R.id.mealType);
 
             itemView.setOnClickListener(v -> {
                 if (recipeListener != null)
@@ -78,8 +78,13 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
             titleLabel.setText(recipe.getName());
             thumbnail.setImageURI(Uri.fromFile(new File(recipe.getImagePath())));
             time.setText(recipe.getTime());
-//            mealType.setText(recipe.getMealType());
+            String imgPath = recipe.getImagePath();
+            if (imgPath.equals("default")) {
+                thumbnail.setImageURI(Uri.fromFile(new File(imgPath)));
+            } else {
+                Drawable mDrawable = thumbnail.getResources().getDrawable(RecipeConstants.DEFAULT_IMAGE);
+                thumbnail.setImageDrawable(mDrawable);
+            }
         }
-
     }
 }

@@ -1,7 +1,9 @@
 package app.touchlessChef.activity.standard.recipe;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +18,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import java.io.File;
 import java.util.Objects;
 
+import app.touchlessChef.constants.RecipeConstants;
 import app.touchlessChef.fragment.recipe.RecipeViewFragment;
 import app.touchlessChef.model.Recipe;
 import app.touchlessChef.R;
@@ -23,7 +26,7 @@ import app.touchlessChef.activity.standard.MenuActivity;
 import app.touchlessChef.constants.RecipeEditConstants;
 
 public class ViewRecipeActivity extends MenuActivity {
-    private Recipe currentRecipe;
+    private Recipe recipe;
 
     private ImageView mRecipeImage;
     private TextView mRecipeDescription;
@@ -40,26 +43,33 @@ public class ViewRecipeActivity extends MenuActivity {
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        currentRecipe = getIntent().getParcelableExtra("recipe");
+        recipe = getIntent().getParcelableExtra("recipe");
         findViewsById();
 
         setSupportActionBar(mToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(currentRecipe.getName());
+        Objects.requireNonNull(getSupportActionBar()).setTitle(recipe.getName());
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mRecipeImage.setImageURI(Uri.fromFile(new File(currentRecipe.getImagePath())));
-        mRecipeDescription.setText(currentRecipe.getDescription());
-        mRecipeTime.setText(currentRecipe.getTime());
-        mRecipeType.setText(currentRecipe.getMealType());
+        String imgPath = recipe.getImagePath();
+        if (imgPath.equals("default")) {
+            mRecipeImage.setImageURI(Uri.fromFile(new File(imgPath)));
+        } else {
+            @SuppressLint("UseCompatLoadingForDrawables")
+            Drawable mDrawable = mRecipeImage.getResources().getDrawable(RecipeConstants.DEFAULT_IMAGE);
+            mRecipeImage.setImageDrawable(mDrawable);
+        }
+        mRecipeDescription.setText(recipe.getDescription());
+        mRecipeTime.setText(recipe.getTime());
+        mRecipeType.setText(recipe.getMealType());
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
         mCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
         mCollapsingToolbarLayout.setExpandedTitleTypeface(font);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.recipe_view_holder,
-                RecipeViewFragment.newInstance(currentRecipe.getIngredients(),
-                        currentRecipe.getInstructions())).commit();
+                RecipeViewFragment.newInstance(recipe.getIngredients(),
+                        recipe.getInstructions())).commit();
     }
 
     @Override
@@ -73,13 +83,13 @@ public class ViewRecipeActivity extends MenuActivity {
         switch (item.getItemId()) {
             case R.id.edit_recipe:
                 Intent intent = new Intent();
-                intent.putExtra("recipe", currentRecipe);
+                intent.putExtra("recipe", recipe);
                 setResult(RecipeEditConstants.RECIPE_SHOULD_BE_EDITED, intent);
                 finish();
                 break;
             case R.id.delete_recipe:
                 Intent data = new Intent();
-                data.putExtra("recipeId", currentRecipe.getId());
+                data.putExtra("recipeId", recipe.getId());
                 setResult(RecipeEditConstants.RECIPE_SHOULD_BE_DELETED, data);
                 finish();
                 break;

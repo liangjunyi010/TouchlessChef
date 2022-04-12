@@ -32,7 +32,8 @@ public class IngredientDAO {
         List<Ingredient> ingredients = new ArrayList<>();
         try (Cursor cursor = db.query(Config.TABLE_NAME,
                 new String[]{Config.KEY_ID, Config.KEY_NAME, Config.KEY_RECIPE_ID},
-                Config.KEY_RECIPE_ID + " = ?", new String[]{recipeId + ""}, null, null, null)) {
+                Config.KEY_RECIPE_ID + " = ?", new String[]{recipeId + ""},
+                null, null, null)) {
             if (cursor.moveToFirst()) {
                 do {
                     ingredients.add(new Ingredient(
@@ -59,7 +60,8 @@ public class IngredientDAO {
                         KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         KEY_NAME + " TEXT NOT NULL, " +
                         KEY_RECIPE_ID + " TEXT NOT NULL, " +
-                        "FOREIGN KEY(" + KEY_RECIPE_ID + ") REFERENCES " + RecipeDAO.Config.TABLE_NAME + "(" + RecipeDAO.Config.KEY_ID + "))";
+                        "FOREIGN KEY(" + KEY_RECIPE_ID + ") REFERENCES " +
+                        RecipeDAO.Config.TABLE_NAME + "(" + RecipeDAO.Config.KEY_ID + "))";
     }
 }
 

@@ -63,14 +63,14 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
 
         mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        CollapsingToolbarLayout myCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
+        CollapsingToolbarLayout mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         firstView = findViewById(R.id.firstView);
         secondView = findViewById(R.id.secondView);
         mViewSwitcher = findViewById(R.id.switcher);
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
-        myCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
-        myCollapsingToolbarLayout.setExpandedTitleTypeface(font);
+        mCollapsingToolbarLayout.setCollapsedTitleTypeface(font);
+        mCollapsingToolbarLayout.setExpandedTitleTypeface(font);
 
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
