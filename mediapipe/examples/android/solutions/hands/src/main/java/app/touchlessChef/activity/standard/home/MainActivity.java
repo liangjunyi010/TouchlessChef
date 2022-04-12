@@ -181,15 +181,6 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
     }
 
     @Override
-    public void onEditRecipe(Recipe recipe) {
-        Intent intent = new Intent(this, CreateRecipeActivity.class);
-        intent.putExtra("recipe", recipe);
-        intent.putExtra("category", currentCategory);
-        intent.putExtra("isEditing", true);
-        mActivity.startActivityForResult(intent, REQUEST_ADD_RECIPE);
-    }
-
-    @Override
     public void onDeleteRecipe(long recipeId) {
         databaseAdapter.deleteRecipe(recipeId);
         Snackbar.make(getWindow().getDecorView(), "Recipe deleted.", Snackbar.LENGTH_LONG).show();
