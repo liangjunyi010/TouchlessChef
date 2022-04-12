@@ -51,11 +51,42 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
+        android:id="@+id/buttons"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="200dp"
+        >
+
+        <Button
+            android:id="@+id/button_start_camera"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:text="@string/start_camera" />
+
+        <Button
+            android:id="@+id/button_stop_camera"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stop_camera" />
+    </LinearLayout>
+
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:id="@+id/nestedScrollView"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="230dp"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -103,6 +134,12 @@
 
         </RelativeLayout>
 
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
+    <RelativeLayout
+        android:id="@+id/preview_display_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom">
+    </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

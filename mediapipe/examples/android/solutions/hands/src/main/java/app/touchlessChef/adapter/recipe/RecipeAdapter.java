@@ -79,7 +79,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         public void bind(Recipe recipe) {
             titleLabel.setText(recipe.getName());
             String imgPath = recipe.getImagePath();
-            if (imgPath.equals("default")) {
+            if (!imgPath.equals("default")) {
                 thumbnail.setImageURI(Uri.fromFile(new File(imgPath)));
             } else {
                 Drawable mDrawable = thumbnail.getResources().getDrawable(RecipeConstants.DEFAULT_IMAGE);
