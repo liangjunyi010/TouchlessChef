@@ -58,7 +58,7 @@ public class HandsActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_hands);
+//    setContentView(R.layout.activity_hands);
     setupLiveDemoUiComponents();
     scrollView = findViewById(R.id.scrollView);
 

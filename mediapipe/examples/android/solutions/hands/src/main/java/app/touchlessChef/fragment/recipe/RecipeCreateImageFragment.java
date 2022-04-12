@@ -23,10 +23,10 @@ import app.touchlessChef.model.Recipe;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link RecipeImageFragment#newInstance} factory method to
+ * Use the {@link RecipeCreateImageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RecipeImageFragment extends NavigableFragment {
+public class RecipeCreateImageFragment extends NavigableFragment {
     private static final int MAX_DESCRIPTION_LENGTH = 200;
     private String currentRecipeImage;
     private ImageListener mListener;
@@ -38,8 +38,8 @@ public class RecipeImageFragment extends NavigableFragment {
     private Spinner recipeTime;
     private Spinner recipeType;
 
-    public static RecipeImageFragment newInstance(Recipe recipe) {
-        RecipeImageFragment fragment = new RecipeImageFragment();
+    public static RecipeCreateImageFragment newInstance(Recipe recipe) {
+        RecipeCreateImageFragment fragment = new RecipeCreateImageFragment();
 
         Bundle args = new Bundle();
         if (recipe.getDescription() != null) {
@@ -56,7 +56,7 @@ public class RecipeImageFragment extends NavigableFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_recipe_image, container, false);
+        View view = inflater.inflate(R.layout.fragment_recipe_create_image, container, false);
         recipeImage = view.findViewById(R.id.recipe_image);
         selectImageBtn = view.findViewById(R.id.choose_image);
         recipeDescription = view.findViewById(R.id.recipe_description);

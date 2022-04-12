@@ -34,14 +34,14 @@ import app.touchlessChef.model.Ingredient;
 import app.touchlessChef.model.Instruction;
 import app.touchlessChef.model.Recipe;
 import app.touchlessChef.fragment.recipe.NavigableFragment;
-import app.touchlessChef.fragment.recipe.RecipeImageFragment;
-import app.touchlessChef.fragment.recipe.RecipeIngredientFragment;
-import app.touchlessChef.fragment.recipe.RecipeInstructionFragment;
+import app.touchlessChef.fragment.recipe.RecipeCreateImageFragment;
+import app.touchlessChef.fragment.recipe.RecipeCreateIngredientFragment;
+import app.touchlessChef.fragment.recipe.RecipeCreateInstructionFragment;
 import app.touchlessChef.constants.RecipeEditConstants;
 
 public class CreateRecipeActivity extends AppCompatActivity implements
-        RecipeImageFragment.ImageListener, RecipeInstructionFragment.InstructionListener,
-        RecipeIngredientFragment.IngredientListener{
+        RecipeCreateImageFragment.ImageListener, RecipeCreateInstructionFragment.InstructionListener,
+        RecipeCreateIngredientFragment.IngredientListener{
 
     private static final int REQUEST_OPEN_GALLERY = 10;
     private static final int REQUEST_TO_ACCESS_GALLERY = 11;
@@ -84,9 +84,9 @@ public class CreateRecipeActivity extends AppCompatActivity implements
     @Override
     public void onBackPressed() {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frame_container);
-        if (fragment instanceof RecipeIngredientFragment)
+        if (fragment instanceof RecipeCreateIngredientFragment)
             displayFragment(0);
-        else if (fragment instanceof RecipeInstructionFragment)
+        else if (fragment instanceof RecipeCreateInstructionFragment)
             displayFragment(1);
         else
             super.onBackPressed();
@@ -99,7 +99,7 @@ public class CreateRecipeActivity extends AppCompatActivity implements
             if (resultCode == RESULT_OK) {
                 Uri imageData = data.getData();
                 String imageSrc = Files.getRealPathFromURI(this, imageData);
-                ((RecipeImageFragment) Objects.requireNonNull(getSupportFragmentManager()
+                ((RecipeCreateImageFragment) Objects.requireNonNull(getSupportFragmentManager()
                         .findFragmentById(R.id.frame_container))).onImageSelected(imageSrc);
 
                 currentRecipe.setImagePath(imageSrc);
@@ -130,17 +130,17 @@ public class CreateRecipeActivity extends AppCompatActivity implements
 
         switch (position) {
             case 0:
-                fragment = RecipeImageFragment.newInstance(currentRecipe);
+                fragment = RecipeCreateImageFragment.newInstance(currentRecipe);
                 ft.setCustomAnimations(R.animator.left_slide_in, R.animator.right_slide_out);
                 nextButtonText = "NEXT";
                 break;
             case 1:
-                fragment = RecipeIngredientFragment.newInstance(currentRecipe);
+                fragment = RecipeCreateIngredientFragment.newInstance(currentRecipe);
                 ft.setCustomAnimations(R.animator.right_slide_in, R.animator.left_slide_out);
                 nextButtonText = "NEXT";
                 break;
             case 2:
-                fragment = RecipeInstructionFragment.newInstance(currentRecipe);
+                fragment = RecipeCreateInstructionFragment.newInstance(currentRecipe);
                 ft.setCustomAnimations(R.animator.right_slide_in, R.animator.left_slide_out);
                 nextButtonText = "Finish";
                 break;
@@ -163,7 +163,7 @@ public class CreateRecipeActivity extends AppCompatActivity implements
         setSupportActionBar(mToolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         nextButton = findViewById(R.id.nextButton);
     }
 

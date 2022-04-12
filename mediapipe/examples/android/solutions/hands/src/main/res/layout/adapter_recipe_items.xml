@@ -27,7 +27,8 @@
                 android:focusable="false"
                 android:scaleType="centerCrop"
                 android:transitionName="image_shared"
-                tools:src="@drawable/vn_botloc" />
+                tools:src="@drawable/vn_botloc"
+                android:contentDescription="@string/recipe_card_image" />
 
             <TextView
                 android:id="@+id/titleLabel"
@@ -54,9 +55,11 @@
                 android:layout_marginEnd="0dp"
                 android:layout_marginBottom="0dp"
                 android:layout_toEndOf="@id/thumbnail"
+                android:contentDescription="@string/clock_image"
                 app:layout_constraintVertical_bias="0.1"
                 app:srcCompat="@drawable/ic_clock"
-                app:tint="@color/yellow" />
+                app:tint="@color/yellow"
+                tools:ignore="ImageContrastCheck" />
 
             <TextView
                 android:id="@+id/time_textview"
@@ -69,7 +72,7 @@
                 android:layout_marginBottom="-1dp"
                 android:layout_toEndOf="@id/thumbnail"
                 android:textAlignment="center"
-                android:textColor="@color/yellow"
+                android:textColor="#827717"
                 app:layout_constraintTop_toBottomOf="@+id/clock_imageView"
                 tools:text="@string/time_textview" />
 

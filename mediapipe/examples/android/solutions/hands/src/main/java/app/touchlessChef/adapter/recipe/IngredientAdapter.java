@@ -16,7 +16,7 @@ import app.touchlessChef.R;
 
 public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder>{
     private final List<Ingredient> ingredientList;
-    private boolean isEditable = true;
+    private final boolean isEditable = true;
     private IngredientListener ingredientListener;
 
     public IngredientAdapter(List<Ingredient> ingredientList) {

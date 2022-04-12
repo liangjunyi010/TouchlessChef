@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.recipe.RecipeInstructionFragment">
+    tools:context=".fragment.recipe.RecipeCreateIngredientFragment">
 
     <TextView
         android:id="@+id/empty_view"
@@ -11,30 +11,36 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="@string/no_instruction"
+        android:text="@string/no_ingredients"
         android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/instructionLayout"
+        android:layout_above="@id/ingredientLayout"
         android:layout_margin="8dp" />
 
     <RelativeLayout
-        android:id="@+id/instructionLayout"
+        android:id="@+id/ingredientLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
 
         <EditText
-            android:id="@+id/instructionField"
+            android:id="@+id/ingredientField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_toStartOf="@id/add_button"
-            android:hint="@string/new_instruction" />
+            android:hint="@string/new_ingredient"
+            android:inputType="text"
+            android:minHeight="48dp"
+            tools:ignore="TextContrastCheck"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/add_button"

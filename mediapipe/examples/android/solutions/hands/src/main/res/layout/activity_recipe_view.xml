@@ -25,17 +25,20 @@
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:statusBarScrim="@android:color/transparent"
-            android:background="@drawable/vn_botloc">
+            android:background="@drawable/vn_botloc"
+            app:expandedTitleTextColor="@color/colorPrimaryDark">
 
             <ImageView
                 android:id="@+id/recipe_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/recipe_view_image"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/vn_botloc"
                 android:transitionName="image_shared"
-                app:layout_collapseMode="parallax" />
+                app:layout_collapseMode="parallax"
+                tools:ignore="ImageContrastCheck" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -45,7 +48,8 @@
                 android:background="@android:color/transparent"
                 android:fitsSystemWindows="false"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+                app:theme="@style/ToolbarTheme"/>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -128,10 +132,7 @@
                 android:layout_below="@+id/recipe_description"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal"
-                android:textSize="20sp"></LinearLayout>
-
-
-
+                android:textSize="20sp" />
         </RelativeLayout>
 
     </ScrollView>

@@ -30,7 +30,8 @@
                 app:expandedTitleMarginStart="48dp"
                 app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:statusBarScrim="@android:color/transparent">
+                app:statusBarScrim="@android:color/transparent"
+                app:expandedTitleTextColor="@color/colorPrimaryDark">
 
                 <ViewSwitcher
                     android:id="@+id/switcher"
@@ -45,9 +46,11 @@
                         android:id="@+id/firstView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:contentDescription="@string/first_view_fragment"
                         android:fitsSystemWindows="true"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/vn_botloc" />
+                        android:src="@drawable/vn_botloc"
+                        tools:ignore="ImageContrastCheck" />
 
                     <ImageView
                         android:id="@+id/secondView"
@@ -55,7 +58,8 @@
                         android:layout_height="match_parent"
                         android:fitsSystemWindows="true"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/chn_dumpling" />
+                        android:src="@drawable/chn_dumpling"
+                        android:contentDescription="@string/second_view_fragment"/>
                 </ViewSwitcher>
 
                 <androidx.appcompat.widget.Toolbar
@@ -66,7 +70,9 @@
                     android:background="@android:color/transparent"
                     android:fitsSystemWindows="false"
                     app:layout_collapseMode="pin"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+                    app:titleTextColor="@color/colorPrimaryDark"
+                    app:theme="@style/ToolbarTheme"/>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 

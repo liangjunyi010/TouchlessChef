@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.recipe.RecipeImageFragment">
+    tools:context=".fragment.recipe.RecipeCreateImageFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -16,7 +16,8 @@
             android:id="@+id/recipe_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/recipe_image_holder" />
 
         <Button
             android:id="@+id/choose_image"
@@ -29,9 +30,11 @@
             android:id="@+id/recipe_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/your_recipe_name"
             android:autofillHints="name"
-            android:inputType="text" />
+            android:hint="@string/your_recipe_name"
+            android:inputType="text"
+            android:minHeight="48dp"
+            tools:ignore="TextContrastCheck" />
 
         <EditText
             android:id="@+id/recipe_description"
@@ -39,12 +42,14 @@
             android:layout_height="wrap_content"
             android:autofillHints="description"
             android:hint="@string/a_short_description_about_this_recipe"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:minHeight="48dp"
+            tools:ignore="TextContrastCheck" />
 
         <Spinner
             android:id="@+id/mealType"
             android:layout_width="match_parent"
-            android:layout_height="41dp"
+            android:layout_height="48dp"
             android:autofillHints="meal type"
             android:entries="@array/what_is_your_recipe_category"
             android:prompt="@string/what_is_your_recipe_category"

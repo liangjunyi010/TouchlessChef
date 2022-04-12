@@ -63,6 +63,7 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
 
         mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         CollapsingToolbarLayout mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         firstView = findViewById(R.id.firstView);
         int defaultImage = R.drawable.vn_botloc;

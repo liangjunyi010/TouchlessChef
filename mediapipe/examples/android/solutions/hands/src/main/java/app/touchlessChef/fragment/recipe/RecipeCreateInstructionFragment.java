@@ -26,10 +26,10 @@ import app.touchlessChef.model.Recipe;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link RecipeInstructionFragment#newInstance} factory method to
+ * Use the {@link RecipeCreateInstructionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RecipeInstructionFragment extends NavigableFragment {
+public class RecipeCreateInstructionFragment extends NavigableFragment {
     private InstructionListener myListener;
     private List<Instruction> instructionList;
     private InstructionAdapter instructionAdapter;
@@ -38,10 +38,10 @@ public class RecipeInstructionFragment extends NavigableFragment {
     private TextView emptyView;
     private EditText instructionField;
 
-    public RecipeInstructionFragment() {}
+    public RecipeCreateInstructionFragment() {}
 
-    public static RecipeInstructionFragment newInstance(Recipe recipe) {
-        RecipeInstructionFragment fragment = new RecipeInstructionFragment();
+    public static RecipeCreateInstructionFragment newInstance(Recipe recipe) {
+        RecipeCreateInstructionFragment fragment = new RecipeCreateInstructionFragment();
 
         if (recipe != null) {
             Bundle args = new Bundle();
@@ -56,7 +56,7 @@ public class RecipeInstructionFragment extends NavigableFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_recipe_instruction, container, false);
+        View view = inflater.inflate(R.layout.fragment_recipe_create_instruction, container, false);
 
         Bundle args = getArguments();
         if (args != null)

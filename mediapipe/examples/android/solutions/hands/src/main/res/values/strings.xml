@@ -43,6 +43,16 @@
         <item>> 2 hrs</item>
     </string-array>
     <string name="what_is_your_recipe_category">What is your recipe category?</string>
+    <string name="first_view_fragment">firstViewFragment</string>
+    <string name="second_view_fragment">secondViewFragment</string>
+    <string name="app_icon">App Icon</string>
+    <string name="cuisines_available">Cuisines available</string>
+    <string name="select_your_prefered_cuisine">Select your prefered cuisine</string>
+    <string name="recipe_image_holder">Recipe Image Holder</string>
+    <string name="recipe_card_image">Recipe Card Image</string>
+    <string name="clock_image">Clock Image</string>
+    <string name="bin">Bin</string>
+    <string name="recipe_view_image">Recipe View Image</string>
     <string-array name="what_is_your_recipe_category">
         <item>Breakfast</item>
         <item>Lunch</item>

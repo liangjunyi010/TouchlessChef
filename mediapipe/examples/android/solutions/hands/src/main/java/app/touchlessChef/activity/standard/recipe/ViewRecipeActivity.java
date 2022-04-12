@@ -36,11 +36,7 @@ import app.touchlessChef.model.Recipe;
 import app.touchlessChef.R;
 import app.touchlessChef.activity.standard.MenuActivity;
 import app.touchlessChef.constants.RecipeEditConstants;
-// new
 import android.widget.ScrollView;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.NestedScrollView;
 
 public class ViewRecipeActivity extends MenuActivity {
     private Recipe recipe;
@@ -87,6 +83,8 @@ public class ViewRecipeActivity extends MenuActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle(recipe.getName());
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
         String imgPath = recipe.getImagePath();
         if (!imgPath.equals("default")) {
