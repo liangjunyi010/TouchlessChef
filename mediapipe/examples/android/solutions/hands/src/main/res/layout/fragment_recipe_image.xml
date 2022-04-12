@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.recipe.RecipeImageFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/recipe_image"
@@ -27,29 +28,40 @@
         <EditText
             android:id="@+id/recipe_name"
             android:layout_width="match_parent"
-            android:inputType="text"
             android:layout_height="wrap_content"
-            android:hint="@string/your_recipe_name" />
+            android:hint="@string/your_recipe_name"
+            android:autofillHints="name"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/recipe_description"
             android:layout_width="match_parent"
-            android:inputType="textMultiLine"
             android:layout_height="wrap_content"
-            android:hint="@string/a_short_description_about_this_recipe" />
+            android:autofillHints="description"
+            android:hint="@string/a_short_description_about_this_recipe"
+            android:inputType="textMultiLine" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <Spinner
             android:id="@+id/mealType"
-            android:inputType="text"
-            android:hint="@string/what_is_your_meal_type"/>
-
-        <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/time"
-            android:hint="@string/estimate_time_to_finish"/>
+            android:layout_height="41dp"
+            android:autofillHints="meal type"
+            android:entries="@array/what_is_your_recipe_category"
+            android:prompt="@string/what_is_your_recipe_category"
+            android:spinnerMode="dialog" />
+
+        <Spinner
+            android:id="@+id/time_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:entries="@array/estimate_time"
+            android:prompt="@string/estimate_time_to_finish"
+            android:spinnerMode="dialog"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+
     </LinearLayout>
 
 </ScrollView>

@@ -5,7 +5,4 @@
     <item
         android:id="@+id/new_recipe"
         android:title="@string/new_recipe" />
-    <item
-        android:id="@+id/sign_out"
-        android:title="@string/sign_out" />
 </menu>

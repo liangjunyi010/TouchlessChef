@@ -10,9 +10,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.File;
@@ -34,8 +36,8 @@ public class RecipeImageFragment extends NavigableFragment {
     private Button selectImageBtn;
     private EditText recipeName;
     private EditText recipeDescription;
-    private EditText recipeTime;
-    private EditText recipeType;
+    private Spinner recipeTime;
+    private Spinner recipeType;
 
     public static RecipeImageFragment newInstance(Recipe recipe) {
         RecipeImageFragment fragment = new RecipeImageFragment();
@@ -60,7 +62,7 @@ public class RecipeImageFragment extends NavigableFragment {
         selectImageBtn = view.findViewById(R.id.choose_image);
         recipeDescription = view.findViewById(R.id.recipe_description);
         recipeName = view.findViewById(R.id.recipe_name);
-        recipeTime = view.findViewById(R.id.time);
+        recipeTime = view.findViewById(R.id.time_spinner);
         recipeType = view.findViewById(R.id.mealType);
 
 
@@ -69,13 +71,9 @@ public class RecipeImageFragment extends NavigableFragment {
             String imagePath = args.getString("imagePath");
             String description = args.getString("description");
             String name = args.getString("name");
-            String time = args.getString("time");
-            String mealType = args.getString("mealType");
             onImageSelected(imagePath);
             recipeDescription.setText(description);
             recipeName.setText(name);
-            recipeTime.setText(time);
-            recipeType.setText(mealType);
         }
 
         selectImageBtn.setOnClickListener(v -> {
@@ -113,8 +111,8 @@ public class RecipeImageFragment extends NavigableFragment {
 
         String name = recipeName.getText().toString();
         String description = recipeDescription.getText().toString();
-        String time = recipeTime.getText().toString();
-        String mealType = recipeType.getText().toString();
+        String time = recipeTime.getSelectedItem().toString();
+        String mealType = recipeType.getSelectedItem().toString();
 
         if (name.isEmpty()) {
             Toast.makeText(getActivity(), "Please specify a name for this recipe.",

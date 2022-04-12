@@ -58,15 +58,13 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         TextView titleLabel;
         ImageView thumbnail;
         TextView time;
-        TextView mealType;
 
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
 
             titleLabel = itemView.findViewById(R.id.titleLabel);
             thumbnail = itemView.findViewById(R.id.thumbnail);
-            time = itemView.findViewById(R.id.time);
-            mealType = itemView.findViewById(R.id.mealType);
+            time = itemView.findViewById(R.id.time_textview);
 
             itemView.setOnClickListener(v -> {
                 if (recipeListener != null)
@@ -78,6 +76,8 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
 
         public void bind(Recipe recipe) {
             titleLabel.setText(recipe.getName());
+            thumbnail.setImageURI(Uri.fromFile(new File(recipe.getImagePath())));
+            time.setText(recipe.getTime());
             String imgPath = recipe.getImagePath();
             if (!imgPath.equals("default")) {
                 thumbnail.setImageURI(Uri.fromFile(new File(imgPath)));
