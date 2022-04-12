@@ -1,4 +1,4 @@
-package app.touchlessChef.activity.standard.home;
+package app.touchlessChef.activity.home;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
@@ -26,15 +26,15 @@ import com.google.android.material.navigation.NavigationView;
 
 
 import app.touchlessChef.R;
-import app.touchlessChef.activity.standard.MenuActivity;
+import app.touchlessChef.activity.MenuActivity;
 import app.touchlessChef.adapter.DatabaseAdapter;
 import app.touchlessChef.constants.RecipeConstants;
 import app.touchlessChef.fragment.home.ChineseFragment;
 import app.touchlessChef.fragment.home.VietnamFragment;
 import app.touchlessChef.model.Recipe;
 import app.touchlessChef.fragment.home.BaseFragment;
-import app.touchlessChef.activity.standard.recipe.CreateRecipeActivity;
-import app.touchlessChef.activity.standard.recipe.ViewRecipeActivity;
+import app.touchlessChef.activity.recipe.CreateRecipeActivity;
+import app.touchlessChef.activity.recipe.ViewRecipeActivity;
 import app.touchlessChef.constants.RecipeEditConstants;
 
 public class MainActivity extends MenuActivity implements BaseFragment.FragmentListener {

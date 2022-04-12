@@ -19,27 +19,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.standard.recipe.CreateRecipeActivity"
+            android:name=".activity.recipe.CreateRecipeActivity"
             android:exported="false"
-            android:parentActivityName="app.touchlessChef.activity.standard.home.MainActivity">
+            android:parentActivityName=".activity.home.MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.standard.home.MainActivity"/>
+                android:value=".activity.home.MainActivity"/>
         </activity>
         <activity
-            android:name=".activity.standard.recipe.ViewRecipeActivity"
+            android:name=".activity.recipe.ViewRecipeActivity"
             android:exported="false"
-            android:parentActivityName="app.touchlessChef.activity.standard.home.MainActivity">
+            android:parentActivityName=".activity.home.MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.standard.home.MainActivity"/>
+                android:value=".activity.home.MainActivity"/>
         </activity>
         <activity
-            android:name=".activity.standard.home.MainActivity"
+            android:name=".activity.home.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

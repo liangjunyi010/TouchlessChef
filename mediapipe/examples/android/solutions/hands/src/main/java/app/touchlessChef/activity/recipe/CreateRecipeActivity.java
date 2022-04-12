@@ -1,4 +1,4 @@
-package app.touchlessChef.activity.standard.recipe;
+package app.touchlessChef.activity.recipe;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

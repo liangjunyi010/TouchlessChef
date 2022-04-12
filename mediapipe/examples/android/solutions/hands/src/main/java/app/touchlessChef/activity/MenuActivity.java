@@ -1,4 +1,4 @@
-package app.touchlessChef.activity.standard;
+package app.touchlessChef.activity;
 
 import androidx.appcompat.widget.Toolbar;
 
