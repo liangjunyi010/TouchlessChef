@@ -25,6 +25,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 
+import java.util.Objects;
+
 import app.touchlessChef.R;
 import app.touchlessChef.activity.MenuActivity;
 import app.touchlessChef.adapter.DatabaseAdapter;
@@ -63,7 +65,7 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
 
         mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         CollapsingToolbarLayout mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         firstView = findViewById(R.id.firstView);
         int defaultImage = R.drawable.vn_botloc;

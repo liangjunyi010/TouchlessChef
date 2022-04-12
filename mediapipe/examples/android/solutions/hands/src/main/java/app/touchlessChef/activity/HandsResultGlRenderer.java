@@ -28,7 +28,6 @@ import java.util.List;
 
 /** A custom implementation of {@link ResultGlRenderer} to render {@link HandsResult}. */
 public class HandsResultGlRenderer implements ResultGlRenderer<HandsResult> {
-  private static final String TAG = "HandsResultGlRenderer";
 
   private static final float[] LEFT_HAND_CONNECTION_COLOR = new float[] {0.2f, 1f, 0.2f, 1f};
   private static final float[] RIGHT_HAND_CONNECTION_COLOR = new float[] {1f, 0.2f, 0.2f, 1f};
@@ -105,15 +104,6 @@ public class HandsResultGlRenderer implements ResultGlRenderer<HandsResult> {
             isLeftHand ? LEFT_HAND_HOLLOW_CIRCLE_COLOR : RIGHT_HAND_HOLLOW_CIRCLE_COLOR);
       }
     }
-  }
-
-  /**
-   * Deletes the shader program.
-   *
-   * <p>This is only necessary if one wants to release the program while keeping the context around.
-   */
-  public void release() {
-    GLES20.glDeleteProgram(program);
   }
 
   private void drawConnections(List<NormalizedLandmark> handLandmarkList, float[] colorArray) {
