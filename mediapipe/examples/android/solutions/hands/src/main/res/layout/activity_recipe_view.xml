@@ -24,7 +24,8 @@
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:statusBarScrim="@android:color/transparent">
+            app:statusBarScrim="@android:color/transparent"
+            android:background="@drawable/vn_botloc">
 
             <ImageView
                 android:id="@+id/recipe_image"
@@ -63,29 +64,40 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/mealType"/>
+                android:id="@+id/mealType"
+                android:gravity="start"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"/>
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/time"/>
+                android:id="@+id/time"
+                android:gravity="end"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"/>
+
 
             <TextView
                 android:id="@+id/recipe_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="fill_horizontal"
                 android:text="@string/no_description"
                 android:textColor="@android:color/black"
-                android:textSize="12sp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:id="@+id/recipe_view_holder"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-            </LinearLayout>
+                android:layout_below="@+id/recipe_description"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:textSize="20sp"></LinearLayout>
 
 
 
