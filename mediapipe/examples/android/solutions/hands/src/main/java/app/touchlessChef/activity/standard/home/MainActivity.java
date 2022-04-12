@@ -65,6 +65,10 @@ public class MainActivity extends MenuActivity implements BaseFragment.FragmentL
         setSupportActionBar(mToolbar);
         CollapsingToolbarLayout mCollapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         firstView = findViewById(R.id.firstView);
+        int defaultImage = R.drawable.vn_botloc;
+        firstView.setImageResource(defaultImage);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,
+                VietnamFragment.newInstance(RecipeConstants.VIETNAMESE)).commit();
         secondView = findViewById(R.id.secondView);
         mViewSwitcher = findViewById(R.id.switcher);
 

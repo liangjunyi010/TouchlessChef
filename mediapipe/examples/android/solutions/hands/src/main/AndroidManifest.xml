@@ -21,40 +21,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="app.touchlessChef.StartActivity"
-            android:exported="true"
-            android:screenOrientation="fullSensor">
+            android:name=".activity.standard.recipe.CreateRecipeActivity"
+            android:exported="false"
+            android:parentActivityName="app.touchlessChef.activity.standard.home.MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.standard.home.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.standard.recipe.ViewRecipeActivity"
+            android:exported="false"
+            android:parentActivityName="app.touchlessChef.activity.standard.home.MainActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.standard.home.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activity.standard.home.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.hands.HandsActivity"
-            android:exported="false"
-            android:parentActivityName="app.touchlessChef.StartActivity">
-
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".StartActivity" />
-        </activity>
-        <activity
-            android:name=".activity.standard.recipe.CreateRecipeActivity"
-            android:exported="false"
-            android:parentActivityName="app.touchlessChef.StartActivity">
-
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".StartActivity"/>
-        </activity>
-        <activity
-            android:name=".activity.standard.recipe.ViewRecipeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.standard.home.MainActivity"
-            android:exported="false" />
     </application>
 
 </manifest>
