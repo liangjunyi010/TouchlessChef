@@ -51,13 +51,14 @@ public class RecipeViewFragment extends Fragment {
         TextView recipeView = view.findViewById(R.id.recipe_holder);
 
         // code to design the format of the fragment
+        recipeView.append("\nINGREDIENTS\n");
         for (Ingredient ingredient: ingredientList)
         {
             recipeView.append("\n");
-            recipeView.append(ingredientList.indexOf(ingredient) + 1 +  "." + ingredient.getName());
+            recipeView.append(ingredientList.indexOf(ingredient) + 1 +  ". " + ingredient.getName());
             recipeView.append("\n");
         }
-
+        recipeView.append("\n\nINSTRUCTIONS\n");
         for(Instruction instruction : instructionList)
         {
             recipeView.append("\n");
